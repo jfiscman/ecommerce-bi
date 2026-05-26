@@ -4,77 +4,105 @@
 
 Apuntá la skill a tu export de Tiendanube, Shopify o WooCommerce y obtené un informe con hasta 38 análisis: Market Basket, RFM, cohortes, CLV, cross-sell, churn, estacionalidad, forecast y más. Output: JSON estructurado + informe HTML branded.
 
-Podés correrla en tres modos: **Lite** (20 análisis core), **Full** (38 análisis completos) o **Individual** (uno o varios análisis específicos, ej: solo el RFM, o solo Market Basket + Cohortes).
+Podés correrla en tres modos: **Lite** (20 análisis core), **Full** (38 análisis completos) o **Individual** (un análisis específico o varios, como solo el RFM, o Market Basket + Cohortes).
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 
 ---
 
-## ¿Qué hace?
+## Análisis disponibles
 
-Convierte un CSV de pedidos en un informe accionable. No es un dashboard interactivo: es un **informe estático** pensado para entregar (a cliente, a tu equipo, a vos mismo) con la pregunta ya respondida y la acción concreta encima.
+Lista completa de los 38 análisis que puede generar esta skill, ordenados de mayor a menor impacto típico al negocio. Cada uno se puede correr individualmente o como parte de los modos Lite / Full.
 
-### Ejemplo
+1. **Segmentación RFM** — Clasifica a cada cliente en 11 segmentos según cuándo compró por última vez (Recency), cuántas veces (Frequency) y cuánto gastó (Monetary). Es la base de toda estrategia de CRM y email: te dice a quién mimar (Champions), a quién reactivar (At Risk), a quién dar bienvenida (New) y a quién dejar de gastarle pauta (Lost).
 
-```bash
-python3 scripts/bi_analysis.py \
-  --csv examples/sample_orders.csv \
-  --mode lite \
-  --output /tmp/bi.json
-```
+2. **Ranking de productos** — Ordena el catálogo por revenue, unidades vendidas y tendencia (últimos 3 meses vs 3 anteriores). Identifica héroes (top absoluto) y estrellas emergentes. Te dice qué *es* tu negocio y qué destacar en home, pauta y reabastecimiento.
 
-Salida (extracto):
+3. **Análisis de cohortes (retención)** — Matriz mensual de retención: para cada grupo de clientes adquiridos en un mes, qué porcentaje sigue comprando 1, 2, 3 meses después. Define si el negocio funciona: si la retención cae a cero, cada cliente nuevo es solo un gasto.
 
-```
-Loading CSV: examples/sample_orders.csv
-Platform: tiendanube | Encoding: latin-1 | Delimiter: ';' | Rows: 128
-Running lite analyses...
-  Running #1: Market Basket Analysis...
-  Running #2: Afinidad entre categorías...
-  ...
-Done: 20 ok, 0 skipped
-```
+4. **Customer Lifetime Value (CLV)** — Estima cuánto vale cada cliente a 3 años (AOV × frecuencia × lifespan). Establece tu techo de CAC: si un cliente vale $100, no podés pagar $80 para adquirirlo. Define cuánto invertir en pauta, descuentos y retención.
 
-Después se renderiza un HTML como [`examples/sample_report.html`](examples/sample_report.html) (abrilo en el browser para ver el output completo).
+5. **Evolución mensual de revenue** — Serie mensual de revenue, órdenes y ticket promedio, con tendencia y picos identificados. Es la línea de base contra la que se contextualiza toda otra métrica.
+
+6. **Tasa de recompra** — Porcentaje de clientes que compraron más de una vez y tiempo medio entre compras. Si la recompra es &lt;20% sos un negocio de adquisición pura (caro). Si es &gt;40%, podés invertir en retención. La mediana entre compras le da el ritmo a tus automations.
+
+7. **Productos ancla (gateway products)** — Identifica los productos que más aparecen en órdenes multi-producto y sus mejores co-compras. Son los productos que abren la primera compra y arrastran al carrito otros. Invertir pauta en ellos rinde doble.
+
+8. **Market Basket Analysis** — Detecta qué productos se compran juntos. Calcula pares y tríos con métricas de support, confidence y lift. Insumo directo para cross-sell, bundles, recomendaciones en PDP y módulos "compraron junto".
+
+9. **Oportunidades de bundling** — Toma los combos con mejor lift del Market Basket y propone bundles concretos con precio combinado. Cierra el bucle del análisis en una acción ejecutable: "armá este bundle con 10% off".
+
+10. **Clientes VIP (top 10%)** — Identifica al top 10% de clientes por revenue y reporta su AOV, frecuencia y productos preferidos. Suelen hacer 40-60% del revenue total. Habilita programas VIP, ofertas tempranas y customer service diferenciado.
+
+11. **Análisis de churn** — Detecta clientes que dejaron de comprar (sin actividad por más del doble de su intervalo medio). Reporta su valor histórico y los últimos productos que compraron antes de irse, muchas veces reveladores de problemas de calidad o experiencia.
+
+12. **Estacionalidad** — Detecta picos y valles por mes y por día de la semana. Identifica mes pico, mes valle y día más fuerte. Planificación anual de pauta, stock, lanzamientos y contenido.
+
+13. **Long tail 80/20** — Cuántos SKUs hacen el 80% del revenue. Si pocos SKUs hacen casi todo, el resto del catálogo puede ser candidato a descatalogar, liquidar o pasar a print-on-demand.
+
+14. **Ticket promedio (AOV)** — AOV global, mediano, distribución por tramo y evolución mensual. Compara nuevos vs recurrentes. KPI core de cualquier optimización (bundles, free-shipping threshold, descuentos por volumen).
+
+15. **Revenue por categoría** — Mix del catálogo por categoría con porcentajes. Si una categoría concentra 70%, hay riesgo de dependencia. Si todas reparten parejo, hay oportunidad de empujar una para crecer.
+
+16. **Impacto de descuentos** — Compara AOV con cupón vs sin cupón, % de órdenes con descuento y top cupones. Mide si el descuento *agrega* valor o *canibaliza* margen.
+
+17. **Afinidad entre categorías** — Qué categorías se combinan en la misma orden. Guía cross-merchandising (landings combinadas, carruseles "outfit completo") y la navegación visual del store.
+
+18. **Recomendaciones de cross-sell** — Para cada producto top, qué otro recomendar (basado en lift y co-ocurrencia). Tabla lista para alimentar el motor de recomendaciones del store, derivada del dato real y no de heurísticas genéricas.
+
+19. **Análisis de pricing** — Detecta productos sobre-precio o sub-precio comparados con el promedio de su categoría. Cada uno es candidato a ajuste o conversación con catálogo.
+
+20. **Análisis de precio (distribución)** — Histograma de precios y unidades vendidas por tramo. Identifica el sweet spot del catálogo, útil para curar incorporaciones futuras.
+
+21. **Heatmap por provincia** — Revenue, órdenes y AOV por provincia/estado. Decisiones de pauta geo, negociación de tarifas de envío en zonas con volumen, y detección de provincias con AOV alto pero pocos pedidos (ventana de crecimiento).
+
+22. **Costo de envío vs conversión** — Distribución del costo de envío por tramo y correlación con cancelación. El envío es uno de los principales drivers de abandono: este análisis te da el umbral psicológico de tu base y la palanca para el threshold de envío gratis.
+
+23. **Penetración por ciudad** — Top ciudades por revenue y AOV (granularidad más fina que provincia). Pauta geográfica fina, decisiones de cobertura, patrones de concentración urbana.
+
+24. **Eficiencia de envío gratis** — Compara AOV y conversión de órdenes con envío gratis vs pago. Evalúa si tu política de envío gratis funciona o regalás margen sin contrapartida.
+
+25. **Tiempo de fulfillment** — Días entre orden y despacho: mediana, distribución y outliers. SLA operativo. Si la mediana sube mes a mes, hay un problema de logística por venir.
+
+26. **Tasa de cancelación** — % global de canceladas, top motivos y evolución mensual. Tendencia ascendente = problema (stock, pricing, expectativa). Los motivos te dicen exactamente dónde está la fuga.
+
+27. **Productos con alta cancelación** — Identifica los productos con tasa de cancelación significativamente sobre la media. Cada uno es una conversación con catálogo o con el proveedor.
+
+28. **Mix de medios de pago** — Distribución de órdenes y revenue por medio de pago. Si una procesadora concentra mucho con comisión alta, hay negociación pendiente. Si un medio tiene AOV mayor, empujarlo con descuento.
+
+29. **Medio de envío por zona** — Mix de couriers/métodos por provincia. Detecta dónde la oferta de envíos está incompleta y la conversión cae por falta de opciones.
+
+30. **Forecast de ventas** — Proyección de revenue a 3 meses con ajuste estacional (requiere ≥6 meses de histórico). Planificación financiera, presupuestos, cash flow y stock para temporada alta.
+
+31. **Identificación de nichos** — Clusters de productos con alta afinidad interna y bajo overlap entre sí. Detecta sub-marcas o líneas implícitas dentro del catálogo. Insumo para landings por nicho y curaduría editorial.
+
+32. **Patrón de upgrade** — Detecta si los clientes aumentan su AOV en compras sucesivas. Si crece, el storytelling de marca está funcionando y se puede empujar premium. Si no, el techo de cada cliente es la primera compra.
+
+33. **Análisis de SKU/variantes** — Performance por variante (color, talle, SKU). Detecta variantes muertas y heroínas. Discontinuar lo que no rota, reforzar lo que sí. Diferencia entre "este producto vende" y "vende solo en talle M negro".
+
+34. **Ciclo de vida del producto** — Clasifica productos en emergente, madurez o declive según evolución de unidades. Lifecycle management: promover emergentes, exprimir maduros, liquidar declive antes de que generen stock muerto.
+
+35. **Revenue por canal** — Distribución de revenue por canal (web, mobile, POS). Si mobile concentra órdenes pero el AOV baja, hay friction en el checkout mobile.
+
+36. **Análisis de canal (profundo)** — Comparativa por canal en AOV, tasa de cancelación y mix de productos. Detecta diferencias de comportamiento no obvias entre canales.
+
+37. **Afinidad entre colores** — Combos de colores comprados juntos (parsea el nombre del producto). Merchandising fino: qué paletas funcionan, qué nuevos colores agregar al próximo drop.
+
+38. **Afinidad entre talles** — Combos de talles en la misma orden. Decisiones de curva de stock por talle y detección de "compra para pareja/familia" (talles muy distintos en una misma orden).
 
 ---
 
-## Análisis disponibles
+## Plataformas soportadas
 
-Los 38 análisis están **rankeados por impacto al negocio** en [`SKILL.md`](SKILL.md). Si recién arrancás, priorizá Tier 1.
+| Plataforma | Detección automática | Encoding | Delimitador |
+|---|---|---|---|
+| **Tiendanube** | Por headers | `latin-1` | `;` |
+| **Shopify** | Por headers | `utf-8` | `,` |
+| **WooCommerce** | Por headers | `utf-8` | `,` |
+| **Genérico** | Si las columnas matchean los nombres canónicos | autodetectado | autodetectado |
 
-### TIER 1 — Métricas fundacionales (corré esto sí o sí)
-
-1. **#7 Segmentación RFM** — base de toda estrategia de CRM/email
-2. **#3 Ranking de productos** — qué *es* tu negocio
-3. **#9 Cohortes de retención** — define si el negocio funciona
-4. **#8 Customer Lifetime Value** — establece tu techo de CAC
-5. **#11 Evolución mensual** — la línea de base
-6. **#10 Tasa de recompra** — health metric esencial
-
-### TIER 2 — Decisiones tácticas accionables
-
-7. **#4 Productos ancla** (gateway products que abren la primera compra)
-8. **#1 Market Basket** (cross-sell directo)
-9. **#19 Oportunidades de bundling**
-10. **#26 Clientes VIP** (top 10%)
-11. **#27 Análisis de churn**
-12. **#20 Estacionalidad**
-
-### TIER 3 — Mix, pricing y stock
-
-#5 Long tail 80/20 · #12 Ticket promedio · #13 Revenue por categoría · #14 Impacto de descuentos · #2 Afinidad entre categorías · #36 Cross-sell recomendaciones · #37 Análisis de pricing · #29 Análisis de precio
-
-### TIER 4 — Geografía y operativa
-
-#15 Heatmap provincia · #16 Costo envío vs conversión · #30 Penetración por ciudad · #34 Eficiencia envío gratis · #32 Tiempo fulfillment · #17 Tasa cancelación · #6 Cancelaciones por producto · #18 Mix medios de pago · #31 Medio envío por zona
-
-### TIER 5 — Avanzados y específicos
-
-#35 Forecast · #38 Nichos · #25 Patrón de upgrade · #23 SKU/variantes · #24 Ciclo de vida · #28 Revenue por canal · #33 Análisis de canal · #21 Afinidad colores · #22 Afinidad talles
-
-Detalle de cada uno (qué hace, para qué sirve, columnas requeridas) en [`SKILL.md`](SKILL.md). Metodología técnica en [`references/analysis_catalog.md`](references/analysis_catalog.md).
+Mapeo completo de columnas en [`references/csv_mapping.md`](references/csv_mapping.md).
 
 ---
 
@@ -82,7 +110,7 @@ Detalle de cada uno (qué hace, para qué sirve, columnas requeridas) en [`SKILL
 
 ### Modo Lite (default)
 
-Los 20 análisis core (Tier 1 + Tier 2 base + lo más usado de Tier 3-4). ~30 segundos.
+Los 20 análisis core (los más usados de la lista de arriba). Corre en ~30 segundos.
 
 ```bash
 python3 scripts/bi_analysis.py --csv orders.csv --mode lite --output out.json
@@ -101,28 +129,15 @@ python3 scripts/bi_analysis.py --csv orders.csv --mode full --output out.json
 Uno o varios análisis específicos. El script resuelve dependencias automáticamente.
 
 ```bash
-# Solo RFM
+# Listar todos los análisis con sus IDs internos
+python3 scripts/bi_analysis.py --list
+
+# Correr uno solo (RFM)
 python3 scripts/bi_analysis.py --csv orders.csv --analysis 7 --output out.json
 
-# RFM + Cohortes + CLV
+# Varios (RFM + CLV + Cohortes)
 python3 scripts/bi_analysis.py --csv orders.csv --analysis 7,8,9 --output out.json
-
-# Listar todos los análisis disponibles
-python3 scripts/bi_analysis.py --list
 ```
-
----
-
-## Plataformas soportadas
-
-| Plataforma | Detección automática | Encoding | Delimitador |
-|---|---|---|---|
-| **Tiendanube** | Por headers | `latin-1` | `;` |
-| **Shopify** | Por headers | `utf-8` | `,` |
-| **WooCommerce** | Por headers | `utf-8` | `,` |
-| **Genérico** | Si las columnas matchean los nombres canónicos | autodetectado | autodetectado |
-
-Mapeo completo de columnas en [`references/csv_mapping.md`](references/csv_mapping.md).
 
 ---
 
@@ -143,9 +158,9 @@ Reiniciá Claude Code. Después escribí algo como:
 
 > "Hacé un análisis de BI completo sobre `mi_export_tiendanube.csv`" → modo Lite/Full
 >
-> "Armame un RFM sobre `mi_export_tiendanube.csv`" → modo Individual (#7)
+> "Armame un RFM sobre `mi_export_tiendanube.csv`" → modo Individual
 >
-> "Quiero solo el market basket y la afinidad de categorías" → modo Individual (#1, #2)
+> "Quiero solo el market basket y la afinidad de categorías" → modo Individual
 
 Claude detecta la skill, te pregunta qué modo y devuelve el informe en HTML.
 
@@ -185,7 +200,6 @@ El repo viene con un CSV sintético en `examples/sample_orders.csv` (~80 órdene
 
 - Verificar que la skill funciona en tu entorno.
 - Aprender qué output produce antes de tirarle datos reales.
-- Generar un sample como demo.
 
 ```bash
 python3 scripts/bi_analysis.py \
