@@ -2202,26 +2202,46 @@ FULL_ANALYSES = LITE_ANALYSES + [
 ]
 
 
-def run_analyses(df, mode='lite'):
-    """Run all analyses for the given mode."""
-    analyses = LITE_ANALYSES if mode == 'lite' else FULL_ANALYSES
+ALL_ANALYSES_INDEX = {a[0]: a for a in FULL_ANALYSES}
+
+
+def run_analyses(df, mode='lite', ids=None):
+    """Run analyses. Either by `mode` ('lite' | 'full') or by explicit `ids` list."""
+    if ids is not None:
+        analyses = []
+        for n in ids:
+            if n in ALL_ANALYSES_INDEX:
+                analyses.append(ALL_ANALYSES_INDEX[n])
+            else:
+                print(f"  WARNING: analysis #{n} does not exist (valid range: 1-38). Skipping.", file=sys.stderr)
+    else:
+        analyses = LITE_ANALYSES if mode == 'lite' else FULL_ANALYSES
+
     results = {}
 
-    # Run Market Basket first (needed by bundling and cross-sell)
-    basket_result = analysis_01_market_basket(df)
-    results['1'] = {
-        'number': 1,
-        'name': 'Market Basket Analysis',
-        'category': 'Producto',
-        'data': basket_result,
-    }
+    # Bundling (#19) and cross-sell (#36) need basket results.
+    # If they're in the requested list, run Market Basket first as a dependency.
+    requested_nums = {a[0] for a in analyses}
+    needs_basket = bool(requested_nums & {1, 19, 36})
+
+    basket_result = None
+    if needs_basket:
+        print(f"  Running #1: Market Basket Analysis... (dependency)", file=sys.stderr)
+        basket_result = analysis_01_market_basket(df)
+        if 1 in requested_nums:
+            results['1'] = {
+                'number': 1,
+                'name': 'Market Basket Analysis',
+                'category': 'Producto',
+                'data': basket_result,
+            }
 
     for num, name, category, func in analyses:
-        if num == 1:
-            continue  # Already ran
+        if num == 1 and basket_result is not None:
+            continue  # Already ran as dependency
 
         kwargs = {}
-        if num in [19, 36]:  # Bundling and cross-sell need basket results
+        if num in [19, 36] and basket_result is not None:
             kwargs['basket_results'] = basket_result
 
         print(f"  Running #{num}: {name}...", file=sys.stderr)
@@ -2235,6 +2255,29 @@ def run_analyses(df, mode='lite'):
         }
 
     return results
+
+
+def list_analyses():
+    """Print all available analyses and exit."""
+    print("Available analyses (use --analysis N or --analysis N,M,...):\n", file=sys.stderr)
+    current_cat = None
+    for num, name, category, _ in FULL_ANALYSES:
+        if category != current_cat:
+            print(f"\n  [{category}]", file=sys.stderr)
+            current_cat = category
+        modes = "Lite + Full" if num <= 20 else "Full only"
+        print(f"    #{num:>2}  {name:<45}  ({modes})", file=sys.stderr)
+    print("\nModes: --mode lite (1-20) | --mode full (1-38)", file=sys.stderr)
+
+
+def parse_analysis_ids(value):
+    """Parse '7' or '1,4,7' into [7] or [1, 4, 7]."""
+    if not value:
+        return None
+    try:
+        return [int(x.strip()) for x in value.split(",") if x.strip()]
+    except ValueError as e:
+        raise argparse.ArgumentTypeError(f"Invalid --analysis value '{value}'. Use a number or comma-separated list (e.g. 7 or 1,4,7).") from e
 
 
 def compute_summary(df):
@@ -2290,11 +2333,35 @@ def compute_summary(df):
 
 
 def main():
-    parser = argparse.ArgumentParser(description='eCommerce BI Analysis')
-    parser.add_argument('--csv', required=True, help='Path to CSV file')
-    parser.add_argument('--mode', choices=['lite', 'full'], default='lite', help='Analysis mode')
-    parser.add_argument('--output', required=True, help='Output JSON path')
+    parser = argparse.ArgumentParser(
+        description='eCommerce BI Analysis — Lite (20), Full (38) or individual analyses.',
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
+Examples:
+  bi_analysis.py --csv orders.csv --mode lite --output out.json
+  bi_analysis.py --csv orders.csv --mode full --output out.json
+  bi_analysis.py --csv orders.csv --analysis 7 --output out.json
+  bi_analysis.py --csv orders.csv --analysis 1,4,7,9 --output out.json
+  bi_analysis.py --list
+""",
+    )
+    parser.add_argument('--csv', help='Path to CSV file')
+    parser.add_argument('--mode', choices=['lite', 'full'], default='lite',
+                        help='Analysis mode (ignored if --analysis is set). Default: lite.')
+    parser.add_argument('--analysis', type=parse_analysis_ids, default=None,
+                        help='Run specific analysis IDs (e.g. "7" or "1,4,7"). Overrides --mode.')
+    parser.add_argument('--output', help='Output JSON path')
+    parser.add_argument('--list', action='store_true', help='List all available analyses and exit.')
     args = parser.parse_args()
+
+    if args.list:
+        list_analyses()
+        sys.exit(0)
+
+    if not args.csv:
+        parser.error("--csv is required (unless --list)")
+    if not args.output:
+        parser.error("--output is required (unless --list)")
 
     if not os.path.exists(args.csv):
         print(f"ERROR: File not found: {args.csv}", file=sys.stderr)
@@ -2308,11 +2375,19 @@ def main():
     summary = compute_summary(df)
     summary['platform'] = platform
 
-    print(f"Running {args.mode} analyses...", file=sys.stderr)
-    analyses = run_analyses(df, args.mode)
+    if args.analysis is not None:
+        label = f"individual ({','.join(str(x) for x in args.analysis)})"
+        mode_for_output = 'individual'
+    else:
+        label = args.mode
+        mode_for_output = args.mode
+
+    print(f"Running {label} analyses...", file=sys.stderr)
+    analyses = run_analyses(df, args.mode, ids=args.analysis)
 
     output = {
-        'mode': args.mode,
+        'mode': mode_for_output,
+        'analysis_ids': args.analysis,
         'platform': platform,
         'summary': summary,
         'analyses': analyses,

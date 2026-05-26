@@ -945,11 +945,11 @@
                 "count": 2
               },
               {
-                "product": "Pantalón Jogger Negro - L",
+                "product": "Buzo Oversize Gris - M",
                 "count": 1
               },
               {
-                "product": "Buzo Oversize Gris - M",
+                "product": "Pantalón Jogger Negro - L",
                 "count": 1
               },
               {
@@ -989,32 +989,6 @@
             ]
           },
           {
-            "product": "Pantalón Jogger Negro - M",
-            "multi_order_count": 5,
-            "top_companions": [
-              {
-                "product": "Remera Básica Negra - L",
-                "count": 1
-              },
-              {
-                "product": "Buzo Oversize Gris - L",
-                "count": 1
-              },
-              {
-                "product": "Sticker Pack",
-                "count": 1
-              },
-              {
-                "product": "Gorra Trucker Beige",
-                "count": 1
-              },
-              {
-                "product": "Riñonera Crossbody Negra",
-                "count": 1
-              }
-            ]
-          },
-          {
             "product": "Remera Básica Negra - L",
             "multi_order_count": 5,
             "top_companions": [
@@ -1036,6 +1010,32 @@
               },
               {
                 "product": "Pantalón Jogger Gris - M",
+                "count": 1
+              }
+            ]
+          },
+          {
+            "product": "Pantalón Jogger Negro - M",
+            "multi_order_count": 5,
+            "top_companions": [
+              {
+                "product": "Remera Básica Negra - L",
+                "count": 1
+              },
+              {
+                "product": "Buzo Oversize Gris - L",
+                "count": 1
+              },
+              {
+                "product": "Sticker Pack",
+                "count": 1
+              },
+              {
+                "product": "Gorra Trucker Beige",
+                "count": 1
+              },
+              {
+                "product": "Riñonera Crossbody Negra",
                 "count": 1
               }
             ]
@@ -1083,11 +1083,11 @@
                 "count": 1
               },
               {
-                "product": "Camisa Lino Blanca - L",
+                "product": "Buzo Oversize Gris - M",
                 "count": 1
               },
               {
-                "product": "Buzo Oversize Gris - M",
+                "product": "Camisa Lino Blanca - L",
                 "count": 1
               }
             ]
@@ -1183,11 +1183,11 @@
                 "count": 1
               },
               {
-                "product": "Camisa Lino Blanca - L",
+                "product": "Pantalón Jogger Negro - M",
                 "count": 1
               },
               {
-                "product": "Pantalón Jogger Negro - M",
+                "product": "Camisa Lino Blanca - L",
                 "count": 1
               }
             ]
@@ -1241,11 +1241,11 @@
                 "count": 1
               },
               {
-                "product": "Pantalón Jogger Negro - M",
+                "product": "Gorra Trucker Beige",
                 "count": 1
               },
               {
-                "product": "Gorra Trucker Beige",
+                "product": "Pantalón Jogger Negro - M",
                 "count": 1
               },
               {
@@ -1293,11 +1293,11 @@
                 "count": 1
               },
               {
-                "product": "Buzo Oversize Negro - M",
+                "product": "Pantalón Jogger Negro - M",
                 "count": 1
               },
               {
-                "product": "Pantalón Jogger Negro - M",
+                "product": "Buzo Oversize Negro - M",
                 "count": 1
               }
             ]
@@ -1627,70 +1627,70 @@
         ],
         "top_10": [
           {
-            "email": "tomas.romero@hotmail.com",
+            "email": "cliente14@example.com",
             "total_revenue": 289686.48,
             "order_count": 6,
             "aov": 48281.079999999994,
             "clv_3y": 1554934.7823529409
           },
           {
-            "email": "lucia.pereyra@gmail.com",
+            "email": "cliente01@example.com",
             "total_revenue": 239951.54,
             "order_count": 7,
             "aov": 34278.79142857143,
             "clv_3y": 1237426.7015698587
           },
           {
-            "email": "agus.luna@gmail.com",
+            "email": "cliente21@example.com",
             "total_revenue": 47403.44,
             "order_count": 2,
             "aov": 23701.72,
             "clv_3y": 1235875.4
           },
           {
-            "email": "lauti.morales@gmail.com",
+            "email": "cliente18@example.com",
             "total_revenue": 267651.0,
             "order_count": 6,
             "aov": 44608.5,
             "clv_3y": 1017631.40625
           },
           {
-            "email": "pmendez@gmail.com",
+            "email": "cliente10@example.com",
             "total_revenue": 351547.35,
             "order_count": 8,
             "aov": 43943.41875,
             "clv_3y": 987760.4243951611
           },
           {
-            "email": "sofi.rojas@gmail.com",
+            "email": "cliente05@example.com",
             "total_revenue": 140898.78,
             "order_count": 3,
             "aov": 46966.26,
             "clv_3y": 667896.8142857144
           },
           {
-            "email": "joaco.paz@gmail.com",
+            "email": "cliente20@example.com",
             "total_revenue": 195088.24,
             "order_count": 5,
             "aov": 39017.648,
             "clv_3y": 630617.3366789668
           },
           {
-            "email": "dvazquez@hotmail.com",
+            "email": "cliente08@example.com",
             "total_revenue": 171681.59,
             "order_count": 7,
             "aov": 24525.941428571427,
             "clv_3y": 581716.3725116039
           },
           {
-            "email": "juli.nunez@gmail.com",
+            "email": "cliente25@example.com",
             "total_revenue": 174323.05,
             "order_count": 5,
             "aov": 34864.61,
             "clv_3y": 555298.152
           },
           {
-            "email": "valen.cabrera@gmail.com",
+            "email": "cliente13@example.com",
             "total_revenue": 38748.81,
             "order_count": 2,
             "aov": 19374.405,
