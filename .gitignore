@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+env/
+ENV/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+
+# Outputs locales (los samples del repo SÍ se commitean)
+/tmp/
+*.tmp.json
+*.tmp.html
+bi_results_*.json
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Datos reales de clientes — nunca commitear
+*_real.csv
+*_client.csv
+clients_data/

@@ -1,0 +1,3292 @@
+{
+  "mode": "lite",
+  "platform": "tiendanube",
+  "summary": {
+    "total_revenue": 2646813.15,
+    "total_orders": 80,
+    "unique_customers": 22,
+    "avg_ticket": 33085.16,
+    "date_min": "2025-05-17",
+    "date_max": "2026-05-03",
+    "trends": {
+      "revenue": -33.0,
+      "orders": -16.7,
+      "customers": -15.4,
+      "ticket": -19.6
+    },
+    "total_rows": 128,
+    "platform": "tiendanube"
+  },
+  "analyses": {
+    "1": {
+      "number": 1,
+      "name": "Market Basket Analysis",
+      "category": "Producto",
+      "data": {
+        "total_orders": 80,
+        "multi_product_orders": 35,
+        "multi_product_pct": 43.8,
+        "pairs": [
+          {
+            "items": [
+              "Short Surf Verde",
+              "Sticker Pack"
+            ],
+            "support": 1.25,
+            "confidence": 25.0,
+            "lift": 5.0,
+            "count": 1
+          },
+          {
+            "items": [
+              "Gorra Trucker Beige",
+              "Sticker Pack"
+            ],
+            "support": 1.25,
+            "confidence": 25.0,
+            "lift": 4.0,
+            "count": 1
+          },
+          {
+            "items": [
+              "Gorra Trucker Negra",
+              "Remera Básica Blanca"
+            ],
+            "support": 2.5,
+            "confidence": 40.0,
+            "lift": 3.2,
+            "count": 2
+          },
+          {
+            "items": [
+              "Gorra Trucker Negra",
+              "Riñonera Crossbody Negra"
+            ],
+            "support": 2.5,
+            "confidence": 40.0,
+            "lift": 3.2,
+            "count": 2
+          },
+          {
+            "items": [
+              "Medias Logo",
+              "Short Surf Negro"
+            ],
+            "support": 2.5,
+            "confidence": 28.57,
+            "lift": 2.54,
+            "count": 2
+          },
+          {
+            "items": [
+              "Buzo Oversize Gris",
+              "Pantalón Jogger Gris"
+            ],
+            "support": 3.75,
+            "confidence": 50.0,
+            "lift": 2.35,
+            "count": 3
+          },
+          {
+            "items": [
+              "Gorra Trucker Beige",
+              "Short Surf Negro"
+            ],
+            "support": 1.25,
+            "confidence": 20.0,
+            "lift": 2.29,
+            "count": 1
+          },
+          {
+            "items": [
+              "Camisa Lino Blanca",
+              "Pantalón Jogger Gris"
+            ],
+            "support": 2.5,
+            "confidence": 33.33,
+            "lift": 2.22,
+            "count": 2
+          },
+          {
+            "items": [
+              "Medias Logo",
+              "Short Surf Verde"
+            ],
+            "support": 1.25,
+            "confidence": 25.0,
+            "lift": 2.22,
+            "count": 1
+          },
+          {
+            "items": [
+              "Riñonera Crossbody Negra",
+              "Sticker Pack"
+            ],
+            "support": 1.25,
+            "confidence": 25.0,
+            "lift": 2.0,
+            "count": 1
+          },
+          {
+            "items": [
+              "Riñonera Crossbody Negra",
+              "Short Surf Verde"
+            ],
+            "support": 1.25,
+            "confidence": 25.0,
+            "lift": 2.0,
+            "count": 1
+          },
+          {
+            "items": [
+              "Campera Puffer Negra",
+              "Medias Logo"
+            ],
+            "support": 2.5,
+            "confidence": 22.22,
+            "lift": 1.98,
+            "count": 2
+          },
+          {
+            "items": [
+              "Gorra Trucker Negra",
+              "Medias Logo"
+            ],
+            "support": 1.25,
+            "confidence": 20.0,
+            "lift": 1.78,
+            "count": 1
+          },
+          {
+            "items": [
+              "Pantalón Jogger Negro",
+              "Sticker Pack"
+            ],
+            "support": 1.25,
+            "confidence": 25.0,
+            "lift": 1.67,
+            "count": 1
+          },
+          {
+            "items": [
+              "Gorra Trucker Beige",
+              "Riñonera Crossbody Negra"
+            ],
+            "support": 1.25,
+            "confidence": 20.0,
+            "lift": 1.6,
+            "count": 1
+          },
+          {
+            "items": [
+              "Buzo Oversize Gris",
+              "Camisa Lino Blanca"
+            ],
+            "support": 5.0,
+            "confidence": 33.33,
+            "lift": 1.57,
+            "count": 4
+          },
+          {
+            "items": [
+              "Camisa Lino Blanca",
+              "Campera Puffer Negra"
+            ],
+            "support": 2.5,
+            "confidence": 22.22,
+            "lift": 1.48,
+            "count": 2
+          },
+          {
+            "items": [
+              "Medias Logo",
+              "Pantalón Jogger Gris"
+            ],
+            "support": 1.25,
+            "confidence": 16.67,
+            "lift": 1.48,
+            "count": 1
+          },
+          {
+            "items": [
+              "Buzo Oversize Gris",
+              "Short Surf Negro"
+            ],
+            "support": 2.5,
+            "confidence": 28.57,
+            "lift": 1.34,
+            "count": 2
+          },
+          {
+            "items": [
+              "Pantalón Jogger Gris",
+              "Remera Básica Blanca"
+            ],
+            "support": 1.25,
+            "confidence": 16.67,
+            "lift": 1.33,
+            "count": 1
+          },
+          {
+            "items": [
+              "Gorra Trucker Beige",
+              "Pantalón Jogger Negro"
+            ],
+            "support": 1.25,
+            "confidence": 20.0,
+            "lift": 1.33,
+            "count": 1
+          },
+          {
+            "items": [
+              "Pantalón Jogger Gris",
+              "Remera Básica Negra"
+            ],
+            "support": 1.25,
+            "confidence": 16.67,
+            "lift": 1.33,
+            "count": 1
+          },
+          {
+            "items": [
+              "Campera Puffer Negra",
+              "Short Surf Negro"
+            ],
+            "support": 1.25,
+            "confidence": 14.29,
+            "lift": 1.27,
+            "count": 1
+          },
+          {
+            "items": [
+              "Buzo Oversize Gris",
+              "Pantalón Jogger Negro"
+            ],
+            "support": 3.75,
+            "confidence": 25.0,
+            "lift": 1.18,
+            "count": 3
+          },
+          {
+            "items": [
+              "Buzo Oversize Gris",
+              "Short Surf Verde"
+            ],
+            "support": 1.25,
+            "confidence": 25.0,
+            "lift": 1.18,
+            "count": 1
+          },
+          {
+            "items": [
+              "Riñonera Crossbody Negra",
+              "Short Surf Negro"
+            ],
+            "support": 1.25,
+            "confidence": 14.29,
+            "lift": 1.14,
+            "count": 1
+          },
+          {
+            "items": [
+              "Buzo Oversize Negro",
+              "Remera Básica Blanca"
+            ],
+            "support": 1.25,
+            "confidence": 14.29,
+            "lift": 1.14,
+            "count": 1
+          },
+          {
+            "items": [
+              "Buzo Oversize Negro",
+              "Remera Básica Negra"
+            ],
+            "support": 1.25,
+            "confidence": 14.29,
+            "lift": 1.14,
+            "count": 1
+          },
+          {
+            "items": [
+              "Camisa Lino Blanca",
+              "Pantalón Jogger Negro"
+            ],
+            "support": 2.5,
+            "confidence": 16.67,
+            "lift": 1.11,
+            "count": 2
+          }
+        ],
+        "trios": [
+          {
+            "items": [
+              "Gorra Trucker Beige",
+              "Pantalón Jogger Negro",
+              "Sticker Pack"
+            ],
+            "support": 1.25,
+            "lift": 26.67,
+            "count": 1
+          },
+          {
+            "items": [
+              "Gorra Trucker Negra",
+              "Medias Logo",
+              "Riñonera Crossbody Negra"
+            ],
+            "support": 1.25,
+            "lift": 14.22,
+            "count": 1
+          },
+          {
+            "items": [
+              "Gorra Trucker Negra",
+              "Remera Básica Blanca",
+              "Riñonera Crossbody Negra"
+            ],
+            "support": 1.25,
+            "lift": 12.8,
+            "count": 1
+          },
+          {
+            "items": [
+              "Medias Logo",
+              "Pantalón Jogger Gris",
+              "Remera Básica Negra"
+            ],
+            "support": 1.25,
+            "lift": 11.85,
+            "count": 1
+          },
+          {
+            "items": [
+              "Campera Puffer Negra",
+              "Medias Logo",
+              "Short Surf Negro"
+            ],
+            "support": 1.25,
+            "lift": 11.29,
+            "count": 1
+          },
+          {
+            "items": [
+              "Buzo Oversize Gris",
+              "Camisa Lino Blanca",
+              "Pantalón Jogger Gris"
+            ],
+            "support": 2.5,
+            "lift": 10.46,
+            "count": 2
+          },
+          {
+            "items": [
+              "Campera Puffer Negra",
+              "Medias Logo",
+              "Remera Básica Blanca"
+            ],
+            "support": 1.25,
+            "lift": 7.9,
+            "count": 1
+          },
+          {
+            "items": [
+              "Buzo Oversize Negro",
+              "Camisa Lino Blanca",
+              "Pantalón Jogger Negro"
+            ],
+            "support": 1.25,
+            "lift": 6.35,
+            "count": 1
+          },
+          {
+            "items": [
+              "Buzo Oversize Gris",
+              "Pantalón Jogger Negro",
+              "Short Surf Negro"
+            ],
+            "support": 1.25,
+            "lift": 4.48,
+            "count": 1
+          },
+          {
+            "items": [
+              "Buzo Oversize Gris",
+              "Camisa Lino Blanca",
+              "Short Surf Negro"
+            ],
+            "support": 1.25,
+            "lift": 4.48,
+            "count": 1
+          },
+          {
+            "items": [
+              "Buzo Oversize Gris",
+              "Camisa Lino Blanca",
+              "Campera Puffer Negra"
+            ],
+            "support": 1.25,
+            "lift": 3.49,
+            "count": 1
+          }
+        ],
+        "status": "ok"
+      }
+    },
+    "2": {
+      "number": 2,
+      "name": "Afinidad entre categorías",
+      "category": "Producto",
+      "data": {
+        "pairs": [
+          {
+            "categories": [
+              "Medias Logo",
+              "Short Surf Negro"
+            ],
+            "support": 2.5,
+            "lift": 2.54,
+            "count": 2
+          },
+          {
+            "categories": [
+              "Gorra",
+              "Riñonera"
+            ],
+            "support": 3.75,
+            "lift": 2.4,
+            "count": 3
+          },
+          {
+            "categories": [
+              "Buzo Oversize Gris",
+              "Pantalón Jogger Gris"
+            ],
+            "support": 3.75,
+            "lift": 2.35,
+            "count": 3
+          },
+          {
+            "categories": [
+              "Camisa Lino Blanca",
+              "Pantalón Jogger Gris"
+            ],
+            "support": 2.5,
+            "lift": 2.22,
+            "count": 2
+          },
+          {
+            "categories": [
+              "Riñonera",
+              "Sticker"
+            ],
+            "support": 1.25,
+            "lift": 2.0,
+            "count": 1
+          },
+          {
+            "categories": [
+              "Gorra",
+              "Sticker"
+            ],
+            "support": 1.25,
+            "lift": 2.0,
+            "count": 1
+          },
+          {
+            "categories": [
+              "Campera Puffer Negra",
+              "Medias Logo"
+            ],
+            "support": 2.5,
+            "lift": 1.98,
+            "count": 2
+          },
+          {
+            "categories": [
+              "Gorra",
+              "Remera Básica Blanca"
+            ],
+            "support": 2.5,
+            "lift": 1.6,
+            "count": 2
+          },
+          {
+            "categories": [
+              "Buzo Oversize Gris",
+              "Camisa Lino Blanca"
+            ],
+            "support": 5.0,
+            "lift": 1.57,
+            "count": 4
+          },
+          {
+            "categories": [
+              "Camisa Lino Blanca",
+              "Campera Puffer Negra"
+            ],
+            "support": 2.5,
+            "lift": 1.48,
+            "count": 2
+          },
+          {
+            "categories": [
+              "Buzo Oversize Gris",
+              "Short Surf Negro"
+            ],
+            "support": 2.5,
+            "lift": 1.34,
+            "count": 2
+          },
+          {
+            "categories": [
+              "Pantalón Jogger Gris",
+              "Remera Básica Blanca"
+            ],
+            "support": 1.25,
+            "lift": 1.33,
+            "count": 1
+          },
+          {
+            "categories": [
+              "Campera Puffer Negra",
+              "Short Surf Negro"
+            ],
+            "support": 1.25,
+            "lift": 1.27,
+            "count": 1
+          },
+          {
+            "categories": [
+              "Buzo Oversize Gris",
+              "Pantalón Jogger Negro"
+            ],
+            "support": 3.75,
+            "lift": 1.18,
+            "count": 3
+          },
+          {
+            "categories": [
+              "Buzo Oversize Gris",
+              "Short Surf Verde"
+            ],
+            "support": 1.25,
+            "lift": 1.18,
+            "count": 1
+          },
+          {
+            "categories": [
+              "Riñonera",
+              "Short Surf Negro"
+            ],
+            "support": 1.25,
+            "lift": 1.14,
+            "count": 1
+          },
+          {
+            "categories": [
+              "Gorra",
+              "Short Surf Negro"
+            ],
+            "support": 1.25,
+            "lift": 1.14,
+            "count": 1
+          },
+          {
+            "categories": [
+              "Buzo Oversize Negro",
+              "Remera Básica Blanca"
+            ],
+            "support": 1.25,
+            "lift": 1.14,
+            "count": 1
+          },
+          {
+            "categories": [
+              "Buzo Oversize Negro",
+              "Remera Básica Negra"
+            ],
+            "support": 1.25,
+            "lift": 1.14,
+            "count": 1
+          },
+          {
+            "categories": [
+              "Camisa Lino Blanca",
+              "Pantalón Jogger Negro"
+            ],
+            "support": 2.5,
+            "lift": 1.11,
+            "count": 2
+          }
+        ],
+        "distribution": [
+          {
+            "category": "Campera Puffer Negra",
+            "revenue": 405000.0
+          },
+          {
+            "category": "Buzo Oversize Gris",
+            "revenue": 374000.0
+          },
+          {
+            "category": "Camisa Lino Blanca",
+            "revenue": 312000.0
+          },
+          {
+            "category": "Pantalón Jogger Negro",
+            "revenue": 296000.0
+          },
+          {
+            "category": "Buzo Oversize Negro",
+            "revenue": 176000.0
+          },
+          {
+            "category": "Riñonera",
+            "revenue": 150000.0
+          },
+          {
+            "category": "Short Surf Negro",
+            "revenue": 130500.0
+          },
+          {
+            "category": "Pantalón Jogger Gris",
+            "revenue": 111000.0
+          },
+          {
+            "category": "Remera Básica Blanca",
+            "revenue": 102000.0
+          },
+          {
+            "category": "Remera Básica Negra",
+            "revenue": 93500.0
+          },
+          {
+            "category": "Gorra",
+            "revenue": 75900.0
+          },
+          {
+            "category": "Short Surf Verde",
+            "revenue": 58000.0
+          },
+          {
+            "category": "Medias Logo",
+            "revenue": 40500.0
+          },
+          {
+            "category": "Sticker",
+            "revenue": 6000.0
+          }
+        ],
+        "status": "ok"
+      }
+    },
+    "3": {
+      "number": 3,
+      "name": "Ranking de productos",
+      "category": "Producto",
+      "data": {
+        "products": [
+          {
+            "product_name": "Campera Puffer Negra - M",
+            "revenue": 405000.0,
+            "units": 9,
+            "orders": 9,
+            "avg_price": 45000.0,
+            "trend_pct": -50.0
+          },
+          {
+            "product_name": "Buzo Oversize Gris - M",
+            "revenue": 198000.0,
+            "units": 9,
+            "orders": 9,
+            "avg_price": 22000.0,
+            "trend_pct": 100.0
+          },
+          {
+            "product_name": "Pantalón Jogger Negro - M",
+            "revenue": 185000.0,
+            "units": 10,
+            "orders": 7,
+            "avg_price": 18500.0,
+            "trend_pct": -20.0
+          },
+          {
+            "product_name": "Buzo Oversize Gris - L",
+            "revenue": 176000.0,
+            "units": 8,
+            "orders": 8,
+            "avg_price": 22000.0,
+            "trend_pct": -50.0
+          },
+          {
+            "product_name": "Buzo Oversize Negro - M",
+            "revenue": 176000.0,
+            "units": 8,
+            "orders": 7,
+            "avg_price": 22000.0,
+            "trend_pct": -50.0
+          },
+          {
+            "product_name": "Camisa Lino Blanca - M",
+            "revenue": 175500.0,
+            "units": 9,
+            "orders": 7,
+            "avg_price": 19500.0,
+            "trend_pct": -75.0
+          },
+          {
+            "product_name": "Riñonera Crossbody Negra",
+            "revenue": 150000.0,
+            "units": 12,
+            "orders": 10,
+            "avg_price": 12500.0,
+            "trend_pct": 200.0
+          },
+          {
+            "product_name": "Camisa Lino Blanca - L",
+            "revenue": 136500.0,
+            "units": 7,
+            "orders": 5,
+            "avg_price": 19500.0,
+            "trend_pct": -100.0
+          },
+          {
+            "product_name": "Short Surf Negro - M",
+            "revenue": 130500.0,
+            "units": 9,
+            "orders": 7,
+            "avg_price": 14500.0,
+            "trend_pct": 200.0
+          },
+          {
+            "product_name": "Pantalón Jogger Negro - L",
+            "revenue": 111000.0,
+            "units": 6,
+            "orders": 5,
+            "avg_price": 18500.0,
+            "trend_pct": -100.0
+          },
+          {
+            "product_name": "Pantalón Jogger Gris - M",
+            "revenue": 111000.0,
+            "units": 6,
+            "orders": 6,
+            "avg_price": 18500.0,
+            "trend_pct": -100.0
+          },
+          {
+            "product_name": "Remera Básica Negra - L",
+            "revenue": 68000.0,
+            "units": 8,
+            "orders": 8,
+            "avg_price": 8500.0,
+            "trend_pct": 0.0
+          },
+          {
+            "product_name": "Short Surf Verde - M",
+            "revenue": 58000.0,
+            "units": 4,
+            "orders": 4,
+            "avg_price": 14500.0,
+            "trend_pct": 100.0
+          },
+          {
+            "product_name": "Remera Básica Blanca - L",
+            "revenue": 51000.0,
+            "units": 6,
+            "orders": 6,
+            "avg_price": 8500.0,
+            "trend_pct": 100.0
+          },
+          {
+            "product_name": "Remera Básica Blanca - M",
+            "revenue": 51000.0,
+            "units": 6,
+            "orders": 5,
+            "avg_price": 8500.0,
+            "trend_pct": 0.0
+          },
+          {
+            "product_name": "Gorra Trucker Negra",
+            "revenue": 41400.0,
+            "units": 6,
+            "orders": 5,
+            "avg_price": 6900.0,
+            "trend_pct": 100.0
+          },
+          {
+            "product_name": "Medias Logo - Pack 3",
+            "revenue": 40500.0,
+            "units": 9,
+            "orders": 9,
+            "avg_price": 4500.0,
+            "trend_pct": -33.3
+          },
+          {
+            "product_name": "Gorra Trucker Beige",
+            "revenue": 34500.0,
+            "units": 5,
+            "orders": 5,
+            "avg_price": 6900.0,
+            "trend_pct": -50.0
+          },
+          {
+            "product_name": "Remera Básica Negra - M",
+            "revenue": 25500.0,
+            "units": 3,
+            "orders": 2,
+            "avg_price": 8500.0,
+            "trend_pct": 0.0
+          },
+          {
+            "product_name": "Sticker Pack",
+            "revenue": 6000.0,
+            "units": 4,
+            "orders": 4,
+            "avg_price": 1500.0,
+            "trend_pct": -66.7
+          }
+        ],
+        "total_products": 20,
+        "status": "ok"
+      }
+    },
+    "4": {
+      "number": 4,
+      "name": "Productos ancla",
+      "category": "Producto",
+      "data": {
+        "anchors": [
+          {
+            "product": "Riñonera Crossbody Negra",
+            "multi_order_count": 8,
+            "top_companions": [
+              {
+                "product": "Gorra Trucker Negra",
+                "count": 2
+              },
+              {
+                "product": "Remera Básica Blanca - L",
+                "count": 1
+              },
+              {
+                "product": "Remera Básica Blanca - M",
+                "count": 1
+              },
+              {
+                "product": "Sticker Pack",
+                "count": 1
+              },
+              {
+                "product": "Gorra Trucker Beige",
+                "count": 1
+              }
+            ]
+          },
+          {
+            "product": "Medias Logo - Pack 3",
+            "multi_order_count": 6,
+            "top_companions": [
+              {
+                "product": "Campera Puffer Negra - M",
+                "count": 2
+              },
+              {
+                "product": "Short Surf Negro - M",
+                "count": 2
+              },
+              {
+                "product": "Remera Básica Blanca - M",
+                "count": 1
+              },
+              {
+                "product": "Pantalón Jogger Gris - M",
+                "count": 1
+              },
+              {
+                "product": "Remera Básica Negra - L",
+                "count": 1
+              }
+            ]
+          },
+          {
+            "product": "Buzo Oversize Gris - L",
+            "multi_order_count": 6,
+            "top_companions": [
+              {
+                "product": "Camisa Lino Blanca - M",
+                "count": 2
+              },
+              {
+                "product": "Pantalón Jogger Gris - M",
+                "count": 2
+              },
+              {
+                "product": "Short Surf Verde - M",
+                "count": 1
+              },
+              {
+                "product": "Pantalón Jogger Negro - M",
+                "count": 1
+              },
+              {
+                "product": "Short Surf Negro - M",
+                "count": 1
+              }
+            ]
+          },
+          {
+            "product": "Short Surf Negro - M",
+            "multi_order_count": 6,
+            "top_companions": [
+              {
+                "product": "Medias Logo - Pack 3",
+                "count": 2
+              },
+              {
+                "product": "Pantalón Jogger Negro - L",
+                "count": 1
+              },
+              {
+                "product": "Buzo Oversize Gris - M",
+                "count": 1
+              },
+              {
+                "product": "Riñonera Crossbody Negra",
+                "count": 1
+              },
+              {
+                "product": "Buzo Oversize Gris - L",
+                "count": 1
+              }
+            ]
+          },
+          {
+            "product": "Buzo Oversize Gris - M",
+            "multi_order_count": 5,
+            "top_companions": [
+              {
+                "product": "Pantalón Jogger Negro - L",
+                "count": 2
+              },
+              {
+                "product": "Camisa Lino Blanca - L",
+                "count": 2
+              },
+              {
+                "product": "Short Surf Negro - M",
+                "count": 1
+              },
+              {
+                "product": "Remera Básica Negra - L",
+                "count": 1
+              },
+              {
+                "product": "Pantalón Jogger Gris - M",
+                "count": 1
+              }
+            ]
+          },
+          {
+            "product": "Pantalón Jogger Negro - M",
+            "multi_order_count": 5,
+            "top_companions": [
+              {
+                "product": "Remera Básica Negra - L",
+                "count": 1
+              },
+              {
+                "product": "Buzo Oversize Gris - L",
+                "count": 1
+              },
+              {
+                "product": "Sticker Pack",
+                "count": 1
+              },
+              {
+                "product": "Gorra Trucker Beige",
+                "count": 1
+              },
+              {
+                "product": "Riñonera Crossbody Negra",
+                "count": 1
+              }
+            ]
+          },
+          {
+            "product": "Remera Básica Negra - L",
+            "multi_order_count": 5,
+            "top_companions": [
+              {
+                "product": "Pantalón Jogger Negro - M",
+                "count": 1
+              },
+              {
+                "product": "Buzo Oversize Gris - M",
+                "count": 1
+              },
+              {
+                "product": "Buzo Oversize Negro - M",
+                "count": 1
+              },
+              {
+                "product": "Riñonera Crossbody Negra",
+                "count": 1
+              },
+              {
+                "product": "Pantalón Jogger Gris - M",
+                "count": 1
+              }
+            ]
+          },
+          {
+            "product": "Pantalón Jogger Gris - M",
+            "multi_order_count": 5,
+            "top_companions": [
+              {
+                "product": "Buzo Oversize Gris - L",
+                "count": 2
+              },
+              {
+                "product": "Remera Básica Blanca - M",
+                "count": 1
+              },
+              {
+                "product": "Buzo Oversize Gris - M",
+                "count": 1
+              },
+              {
+                "product": "Camisa Lino Blanca - L",
+                "count": 1
+              },
+              {
+                "product": "Camisa Lino Blanca - M",
+                "count": 1
+              }
+            ]
+          },
+          {
+            "product": "Campera Puffer Negra - M",
+            "multi_order_count": 4,
+            "top_companions": [
+              {
+                "product": "Medias Logo - Pack 3",
+                "count": 2
+              },
+              {
+                "product": "Remera Básica Blanca - M",
+                "count": 1
+              },
+              {
+                "product": "Short Surf Negro - M",
+                "count": 1
+              },
+              {
+                "product": "Camisa Lino Blanca - L",
+                "count": 1
+              },
+              {
+                "product": "Buzo Oversize Gris - M",
+                "count": 1
+              }
+            ]
+          },
+          {
+            "product": "Remera Básica Blanca - M",
+            "multi_order_count": 4,
+            "top_companions": [
+              {
+                "product": "Gorra Trucker Negra",
+                "count": 2
+              },
+              {
+                "product": "Medias Logo - Pack 3",
+                "count": 1
+              },
+              {
+                "product": "Campera Puffer Negra - M",
+                "count": 1
+              },
+              {
+                "product": "Remera Básica Blanca - L",
+                "count": 1
+              },
+              {
+                "product": "Riñonera Crossbody Negra",
+                "count": 1
+              }
+            ]
+          },
+          {
+            "product": "Short Surf Verde - M",
+            "multi_order_count": 4,
+            "top_companions": [
+              {
+                "product": "Buzo Oversize Gris - L",
+                "count": 1
+              },
+              {
+                "product": "Riñonera Crossbody Negra",
+                "count": 1
+              },
+              {
+                "product": "Sticker Pack",
+                "count": 1
+              },
+              {
+                "product": "Medias Logo - Pack 3",
+                "count": 1
+              }
+            ]
+          },
+          {
+            "product": "Camisa Lino Blanca - M",
+            "multi_order_count": 4,
+            "top_companions": [
+              {
+                "product": "Buzo Oversize Gris - L",
+                "count": 2
+              },
+              {
+                "product": "Short Surf Negro - M",
+                "count": 1
+              },
+              {
+                "product": "Pantalón Jogger Gris - M",
+                "count": 1
+              },
+              {
+                "product": "Pantalón Jogger Negro - L",
+                "count": 1
+              },
+              {
+                "product": "Campera Puffer Negra - M",
+                "count": 1
+              }
+            ]
+          },
+          {
+            "product": "Buzo Oversize Negro - M",
+            "multi_order_count": 4,
+            "top_companions": [
+              {
+                "product": "Buzo Oversize Gris - L",
+                "count": 1
+              },
+              {
+                "product": "Remera Básica Blanca - L",
+                "count": 1
+              },
+              {
+                "product": "Remera Básica Negra - L",
+                "count": 1
+              },
+              {
+                "product": "Camisa Lino Blanca - L",
+                "count": 1
+              },
+              {
+                "product": "Pantalón Jogger Negro - M",
+                "count": 1
+              }
+            ]
+          },
+          {
+            "product": "Gorra Trucker Negra",
+            "multi_order_count": 3,
+            "top_companions": [
+              {
+                "product": "Riñonera Crossbody Negra",
+                "count": 2
+              },
+              {
+                "product": "Remera Básica Blanca - M",
+                "count": 2
+              },
+              {
+                "product": "Remera Básica Blanca - L",
+                "count": 1
+              },
+              {
+                "product": "Medias Logo - Pack 3",
+                "count": 1
+              }
+            ]
+          },
+          {
+            "product": "Pantalón Jogger Negro - L",
+            "multi_order_count": 3,
+            "top_companions": [
+              {
+                "product": "Buzo Oversize Gris - M",
+                "count": 2
+              },
+              {
+                "product": "Short Surf Negro - M",
+                "count": 1
+              },
+              {
+                "product": "Camisa Lino Blanca - M",
+                "count": 1
+              }
+            ]
+          },
+          {
+            "product": "Sticker Pack",
+            "multi_order_count": 3,
+            "top_companions": [
+              {
+                "product": "Riñonera Crossbody Negra",
+                "count": 1
+              },
+              {
+                "product": "Pantalón Jogger Negro - M",
+                "count": 1
+              },
+              {
+                "product": "Gorra Trucker Beige",
+                "count": 1
+              },
+              {
+                "product": "Short Surf Verde - M",
+                "count": 1
+              }
+            ]
+          },
+          {
+            "product": "Gorra Trucker Beige",
+            "multi_order_count": 3,
+            "top_companions": [
+              {
+                "product": "Riñonera Crossbody Negra",
+                "count": 1
+              },
+              {
+                "product": "Short Surf Negro - M",
+                "count": 1
+              },
+              {
+                "product": "Sticker Pack",
+                "count": 1
+              },
+              {
+                "product": "Pantalón Jogger Negro - M",
+                "count": 1
+              }
+            ]
+          },
+          {
+            "product": "Camisa Lino Blanca - L",
+            "multi_order_count": 3,
+            "top_companions": [
+              {
+                "product": "Buzo Oversize Gris - M",
+                "count": 2
+              },
+              {
+                "product": "Pantalón Jogger Gris - M",
+                "count": 1
+              },
+              {
+                "product": "Campera Puffer Negra - M",
+                "count": 1
+              },
+              {
+                "product": "Buzo Oversize Negro - M",
+                "count": 1
+              },
+              {
+                "product": "Pantalón Jogger Negro - M",
+                "count": 1
+              }
+            ]
+          },
+          {
+            "product": "Remera Básica Blanca - L",
+            "multi_order_count": 2,
+            "top_companions": [
+              {
+                "product": "Riñonera Crossbody Negra",
+                "count": 1
+              },
+              {
+                "product": "Gorra Trucker Negra",
+                "count": 1
+              },
+              {
+                "product": "Remera Básica Blanca - M",
+                "count": 1
+              },
+              {
+                "product": "Buzo Oversize Negro - M",
+                "count": 1
+              }
+            ]
+          }
+        ],
+        "status": "ok"
+      }
+    },
+    "5": {
+      "number": 5,
+      "name": "Long tail 80/20",
+      "category": "Producto",
+      "data": {
+        "total_products": 20,
+        "products_80_pct": 11,
+        "pct_products_80": 55.0,
+        "total_revenue": 2330400.0,
+        "pareto_data": [
+          {
+            "product": "Campera Puffer Negra - M",
+            "revenue": 405000.0,
+            "pct_of_total": 17.38,
+            "cumulative_pct": 17.38
+          },
+          {
+            "product": "Buzo Oversize Gris - M",
+            "revenue": 198000.0,
+            "pct_of_total": 8.5,
+            "cumulative_pct": 25.88
+          },
+          {
+            "product": "Pantalón Jogger Negro - M",
+            "revenue": 185000.0,
+            "pct_of_total": 7.94,
+            "cumulative_pct": 33.81
+          },
+          {
+            "product": "Buzo Oversize Gris - L",
+            "revenue": 176000.0,
+            "pct_of_total": 7.55,
+            "cumulative_pct": 41.37
+          },
+          {
+            "product": "Buzo Oversize Negro - M",
+            "revenue": 176000.0,
+            "pct_of_total": 7.55,
+            "cumulative_pct": 48.92
+          },
+          {
+            "product": "Camisa Lino Blanca - M",
+            "revenue": 175500.0,
+            "pct_of_total": 7.53,
+            "cumulative_pct": 56.45
+          },
+          {
+            "product": "Riñonera Crossbody Negra",
+            "revenue": 150000.0,
+            "pct_of_total": 6.44,
+            "cumulative_pct": 62.89
+          },
+          {
+            "product": "Camisa Lino Blanca - L",
+            "revenue": 136500.0,
+            "pct_of_total": 5.86,
+            "cumulative_pct": 68.74
+          },
+          {
+            "product": "Short Surf Negro - M",
+            "revenue": 130500.0,
+            "pct_of_total": 5.6,
+            "cumulative_pct": 74.34
+          },
+          {
+            "product": "Pantalón Jogger Negro - L",
+            "revenue": 111000.0,
+            "pct_of_total": 4.76,
+            "cumulative_pct": 79.11
+          },
+          {
+            "product": "Pantalón Jogger Gris - M",
+            "revenue": 111000.0,
+            "pct_of_total": 4.76,
+            "cumulative_pct": 83.87
+          },
+          {
+            "product": "Remera Básica Negra - L",
+            "revenue": 68000.0,
+            "pct_of_total": 2.92,
+            "cumulative_pct": 86.79
+          },
+          {
+            "product": "Short Surf Verde - M",
+            "revenue": 58000.0,
+            "pct_of_total": 2.49,
+            "cumulative_pct": 89.28
+          },
+          {
+            "product": "Remera Básica Blanca - L",
+            "revenue": 51000.0,
+            "pct_of_total": 2.19,
+            "cumulative_pct": 91.46
+          },
+          {
+            "product": "Remera Básica Blanca - M",
+            "revenue": 51000.0,
+            "pct_of_total": 2.19,
+            "cumulative_pct": 93.65
+          },
+          {
+            "product": "Gorra Trucker Negra",
+            "revenue": 41400.0,
+            "pct_of_total": 1.78,
+            "cumulative_pct": 95.43
+          },
+          {
+            "product": "Medias Logo - Pack 3",
+            "revenue": 40500.0,
+            "pct_of_total": 1.74,
+            "cumulative_pct": 97.17
+          },
+          {
+            "product": "Gorra Trucker Beige",
+            "revenue": 34500.0,
+            "pct_of_total": 1.48,
+            "cumulative_pct": 98.65
+          },
+          {
+            "product": "Remera Básica Negra - M",
+            "revenue": 25500.0,
+            "pct_of_total": 1.09,
+            "cumulative_pct": 99.74
+          },
+          {
+            "product": "Sticker Pack",
+            "revenue": 6000.0,
+            "pct_of_total": 0.26,
+            "cumulative_pct": 100.0
+          }
+        ],
+        "status": "ok"
+      }
+    },
+    "6": {
+      "number": 6,
+      "name": "Productos con alta tasa de cancelación",
+      "category": "Producto",
+      "data": {
+        "overall_cancel_rate": 7.03,
+        "flagged_products": [
+          {
+            "product_name": "Remera Básica Negra - L",
+            "total_orders": 8,
+            "cancelled": 2,
+            "cancel_rate": 0.25
+          },
+          {
+            "product_name": "Gorra Trucker Negra",
+            "total_orders": 5,
+            "cancelled": 1,
+            "cancel_rate": 0.2
+          },
+          {
+            "product_name": "Pantalón Jogger Negro - L",
+            "total_orders": 5,
+            "cancelled": 1,
+            "cancel_rate": 0.2
+          },
+          {
+            "product_name": "Buzo Oversize Negro - M",
+            "total_orders": 7,
+            "cancelled": 1,
+            "cancel_rate": 0.14285714285714285
+          },
+          {
+            "product_name": "Pantalón Jogger Negro - M",
+            "total_orders": 7,
+            "cancelled": 1,
+            "cancel_rate": 0.14285714285714285
+          }
+        ],
+        "total_products_analyzed": 20,
+        "status": "ok"
+      }
+    },
+    "7": {
+      "number": 7,
+      "name": "Segmentación RFM",
+      "category": "Cliente",
+      "data": {
+        "total_customers": 22,
+        "segments": [
+          {
+            "segment": "Loyal",
+            "count": 6,
+            "avg_recency": 69.83333333333333,
+            "avg_frequency": 4.833333333333333,
+            "avg_monetary": 146721.08666666667,
+            "pct": 27.3
+          },
+          {
+            "segment": "Hibernating",
+            "count": 5,
+            "avg_recency": 270.2,
+            "avg_frequency": 1.4,
+            "avg_monetary": 33461.808000000005,
+            "pct": 22.7
+          },
+          {
+            "segment": "Champions",
+            "count": 4,
+            "avg_recency": 29.5,
+            "avg_frequency": 6.25,
+            "avg_monetary": 240227.54499999998,
+            "pct": 18.2
+          },
+          {
+            "segment": "About to Sleep",
+            "count": 2,
+            "avg_recency": 154.5,
+            "avg_frequency": 2.0,
+            "avg_monetary": 41394.795,
+            "pct": 9.1
+          },
+          {
+            "segment": "Potential Loyal",
+            "count": 2,
+            "avg_recency": 27.0,
+            "avg_frequency": 1.5,
+            "avg_monetary": 45043.635,
+            "pct": 9.1
+          },
+          {
+            "segment": "At Risk",
+            "count": 1,
+            "avg_recency": 110.0,
+            "avg_frequency": 6.0,
+            "avg_monetary": 267651.0,
+            "pct": 4.5
+          },
+          {
+            "segment": "Need Attention",
+            "count": 1,
+            "avg_recency": 136.0,
+            "avg_frequency": 3.0,
+            "avg_monetary": 140898.78,
+            "pct": 4.5
+          },
+          {
+            "segment": "Other",
+            "count": 1,
+            "avg_recency": 49.0,
+            "avg_frequency": 3.0,
+            "avg_monetary": 56840.770000000004,
+            "pct": 4.5
+          }
+        ],
+        "rfm_stats": {
+          "avg_recency": 115.7,
+          "avg_frequency": 3.64,
+          "avg_monetary": 120309.69
+        },
+        "status": "ok"
+      }
+    },
+    "8": {
+      "number": 8,
+      "name": "Customer Lifetime Value",
+      "category": "Cliente",
+      "data": {
+        "total_customers": 22,
+        "avg_clv": 562042.97,
+        "median_clv": 502455.73,
+        "avg_aov": 29356.11,
+        "avg_orders": 3.64,
+        "avg_lifespan_days": 152.3,
+        "quartiles": [
+          {
+            "clv_quartile": "Low",
+            "count": 6,
+            "avg_clv": 100366.96013728231,
+            "avg_aov": 21401.613055555557,
+            "avg_orders": 1.5
+          },
+          {
+            "clv_quartile": "Medium",
+            "count": 5,
+            "avg_clv": 447357.8739463732,
+            "avg_aov": 25811.9902,
+            "avg_orders": 3.4
+          },
+          {
+            "clv_quartile": "High",
+            "count": 5,
+            "avg_clv": 564885.7400398653,
+            "avg_aov": 29317.000219047615,
+            "avg_orders": 4.4
+          },
+          {
+            "clv_quartile": "Very High",
+            "count": 6,
+            "avg_clv": 1116920.9214756126,
+            "avg_aov": 40296.62836309524,
+            "avg_orders": 5.333333333333333
+          }
+        ],
+        "top_10": [
+          {
+            "email": "tomas.romero@hotmail.com",
+            "total_revenue": 289686.48,
+            "order_count": 6,
+            "aov": 48281.079999999994,
+            "clv_3y": 1554934.7823529409
+          },
+          {
+            "email": "lucia.pereyra@gmail.com",
+            "total_revenue": 239951.54,
+            "order_count": 7,
+            "aov": 34278.79142857143,
+            "clv_3y": 1237426.7015698587
+          },
+          {
+            "email": "agus.luna@gmail.com",
+            "total_revenue": 47403.44,
+            "order_count": 2,
+            "aov": 23701.72,
+            "clv_3y": 1235875.4
+          },
+          {
+            "email": "lauti.morales@gmail.com",
+            "total_revenue": 267651.0,
+            "order_count": 6,
+            "aov": 44608.5,
+            "clv_3y": 1017631.40625
+          },
+          {
+            "email": "pmendez@gmail.com",
+            "total_revenue": 351547.35,
+            "order_count": 8,
+            "aov": 43943.41875,
+            "clv_3y": 987760.4243951611
+          },
+          {
+            "email": "sofi.rojas@gmail.com",
+            "total_revenue": 140898.78,
+            "order_count": 3,
+            "aov": 46966.26,
+            "clv_3y": 667896.8142857144
+          },
+          {
+            "email": "joaco.paz@gmail.com",
+            "total_revenue": 195088.24,
+            "order_count": 5,
+            "aov": 39017.648,
+            "clv_3y": 630617.3366789668
+          },
+          {
+            "email": "dvazquez@hotmail.com",
+            "total_revenue": 171681.59,
+            "order_count": 7,
+            "aov": 24525.941428571427,
+            "clv_3y": 581716.3725116039
+          },
+          {
+            "email": "juli.nunez@gmail.com",
+            "total_revenue": 174323.05,
+            "order_count": 5,
+            "aov": 34864.61,
+            "clv_3y": 555298.152
+          },
+          {
+            "email": "valen.cabrera@gmail.com",
+            "total_revenue": 38748.81,
+            "order_count": 2,
+            "aov": 19374.405,
+            "clv_3y": 543973.6788461539
+          }
+        ],
+        "status": "ok"
+      }
+    },
+    "9": {
+      "number": 9,
+      "name": "Análisis de cohortes",
+      "category": "Cliente",
+      "data": {
+        "cohort_matrix": [
+          {
+            "cohort": "2025-05",
+            "M+0": 100.0,
+            "M+1": 33.3,
+            "M+2": 33.3,
+            "M+3": 0.0,
+            "M+4": 16.7,
+            "M+5": 33.3,
+            "M+6": 16.7,
+            "M+7": 16.7,
+            "M+8": 33.3,
+            "M+9": 16.7,
+            "M+12": 16.7,
+            "cohort_size": 6
+          },
+          {
+            "cohort": "2025-06",
+            "M+0": 100.0,
+            "M+1": 0.0,
+            "M+2": 50.0,
+            "M+3": 50.0,
+            "M+4": 50.0,
+            "M+5": 50.0,
+            "M+6": 0.0,
+            "M+7": 0.0,
+            "M+8": 0.0,
+            "M+9": 100.0,
+            "M+12": 0.0,
+            "cohort_size": 2
+          },
+          {
+            "cohort": "2025-07",
+            "M+0": 100.0,
+            "M+1": 25.0,
+            "M+2": 50.0,
+            "M+3": 25.0,
+            "M+4": 0.0,
+            "M+5": 50.0,
+            "M+6": 25.0,
+            "M+7": 50.0,
+            "M+8": 0.0,
+            "M+9": 50.0,
+            "M+12": 0.0,
+            "cohort_size": 4
+          },
+          {
+            "cohort": "2025-08",
+            "M+0": 100.0,
+            "M+1": 0.0,
+            "M+2": 50.0,
+            "M+3": 0.0,
+            "M+4": 50.0,
+            "M+5": 100.0,
+            "M+6": 50.0,
+            "M+7": 50.0,
+            "M+8": 0.0,
+            "M+9": 0.0,
+            "M+12": 0.0,
+            "cohort_size": 2
+          },
+          {
+            "cohort": "2025-09",
+            "M+0": 100.0,
+            "M+1": 50.0,
+            "M+2": 0.0,
+            "M+3": 0.0,
+            "M+4": 100.0,
+            "M+5": 50.0,
+            "M+6": 50.0,
+            "M+7": 0.0,
+            "M+8": 0.0,
+            "M+9": 0.0,
+            "M+12": 0.0,
+            "cohort_size": 2
+          },
+          {
+            "cohort": "2025-10",
+            "M+0": 100.0,
+            "M+1": 40.0,
+            "M+2": 20.0,
+            "M+3": 0.0,
+            "M+4": 0.0,
+            "M+5": 0.0,
+            "M+6": 0.0,
+            "M+7": 20.0,
+            "M+8": 0.0,
+            "M+9": 0.0,
+            "M+12": 0.0,
+            "cohort_size": 5
+          },
+          {
+            "cohort": "2026-03",
+            "M+0": 100.0,
+            "M+1": 0.0,
+            "M+2": 0.0,
+            "M+3": 0.0,
+            "M+4": 0.0,
+            "M+5": 0.0,
+            "M+6": 0.0,
+            "M+7": 0.0,
+            "M+8": 0.0,
+            "M+9": 0.0,
+            "M+12": 0.0,
+            "cohort_size": 1
+          }
+        ],
+        "avg_retention": {
+          "M+0": 100.0,
+          "M+1": 21.2,
+          "M+2": 29.0,
+          "M+3": 10.7,
+          "M+4": 31.0,
+          "M+5": 40.5,
+          "M+6": 20.2,
+          "M+7": 19.5,
+          "M+8": 4.8,
+          "M+9": 23.8,
+          "M+12": 2.4
+        },
+        "total_cohorts": 7,
+        "status": "ok"
+      }
+    },
+    "10": {
+      "number": 10,
+      "name": "Tasa de recompra",
+      "category": "Cliente",
+      "data": {
+        "total_customers": 22,
+        "repeat_customers": 18,
+        "repurchase_rate": 81.8,
+        "time_between_purchases": {
+          "median_days": 47.0,
+          "mean_days": 60.5,
+          "p25_days": 19.5,
+          "p75_days": 81.5
+        },
+        "order_distribution": [
+          {
+            "orders": 1,
+            "customers": 4
+          },
+          {
+            "orders": 2,
+            "customers": 5
+          },
+          {
+            "orders": 3,
+            "customers": 3
+          },
+          {
+            "orders": 4,
+            "customers": 2
+          },
+          {
+            "orders": 5,
+            "customers": 3
+          },
+          {
+            "orders": 6,
+            "customers": 2
+          },
+          {
+            "orders": 7,
+            "customers": 2
+          },
+          {
+            "orders": 8,
+            "customers": 1
+          }
+        ],
+        "status": "ok"
+      }
+    },
+    "11": {
+      "number": 11,
+      "name": "Evolución revenue mensual",
+      "category": "Revenue",
+      "data": {
+        "monthly": [
+          {
+            "month_str": "2025-05",
+            "revenue": 215031.22,
+            "orders": 6,
+            "avg_ticket": 35838.54,
+            "mom_pct": null,
+            "yoy_pct": null
+          },
+          {
+            "month_str": "2025-06",
+            "revenue": 193794.96,
+            "orders": 6,
+            "avg_ticket": 32299.16,
+            "mom_pct": -9.88,
+            "yoy_pct": null
+          },
+          {
+            "month_str": "2025-07",
+            "revenue": 315332.96,
+            "orders": 7,
+            "avg_ticket": 45047.57,
+            "mom_pct": 62.71,
+            "yoy_pct": null
+          },
+          {
+            "month_str": "2025-08",
+            "revenue": 218731.67,
+            "orders": 5,
+            "avg_ticket": 43746.33,
+            "mom_pct": -30.63,
+            "yoy_pct": null
+          },
+          {
+            "month_str": "2025-09",
+            "revenue": 223728.2,
+            "orders": 8,
+            "avg_ticket": 27966.02,
+            "mom_pct": 2.28,
+            "yoy_pct": null
+          },
+          {
+            "month_str": "2025-10",
+            "revenue": 341976.65,
+            "orders": 14,
+            "avg_ticket": 24426.9,
+            "mom_pct": 52.85,
+            "yoy_pct": null
+          },
+          {
+            "month_str": "2025-11",
+            "revenue": 59034.58,
+            "orders": 4,
+            "avg_ticket": 14758.64,
+            "mom_pct": -82.74,
+            "yoy_pct": null
+          },
+          {
+            "month_str": "2025-12",
+            "revenue": 189430.92,
+            "orders": 5,
+            "avg_ticket": 37886.18,
+            "mom_pct": 220.88,
+            "yoy_pct": null
+          },
+          {
+            "month_str": "2026-01",
+            "revenue": 437633.09,
+            "orders": 10,
+            "avg_ticket": 43763.31,
+            "mom_pct": 131.03,
+            "yoy_pct": null
+          },
+          {
+            "month_str": "2026-02",
+            "revenue": 106426.03,
+            "orders": 5,
+            "avg_ticket": 21285.21,
+            "mom_pct": -75.68,
+            "yoy_pct": null
+          },
+          {
+            "month_str": "2026-03",
+            "revenue": 166745.67,
+            "orders": 5,
+            "avg_ticket": 33349.13,
+            "mom_pct": 56.68,
+            "yoy_pct": null
+          },
+          {
+            "month_str": "2026-04",
+            "revenue": 84593.4,
+            "orders": 3,
+            "avg_ticket": 28197.8,
+            "mom_pct": -49.27,
+            "yoy_pct": null
+          },
+          {
+            "month_str": "2026-05",
+            "revenue": 94353.8,
+            "orders": 2,
+            "avg_ticket": 47176.9,
+            "mom_pct": 11.54,
+            "yoy_pct": -56.1
+          }
+        ],
+        "trend": "down",
+        "total_revenue": 2646813.15,
+        "total_orders": 80,
+        "status": "ok"
+      }
+    },
+    "12": {
+      "number": 12,
+      "name": "Ticket promedio",
+      "category": "Revenue",
+      "data": {
+        "overall_aov": 33085.16,
+        "median_aov": 26389.93,
+        "distribution": [
+          {
+            "range": "$0-5K",
+            "count": 1
+          },
+          {
+            "range": "$5-10K",
+            "count": 7
+          },
+          {
+            "range": "$10-20K",
+            "count": 14
+          },
+          {
+            "range": "$20-50K",
+            "count": 44
+          },
+          {
+            "range": "$50-100K",
+            "count": 13
+          },
+          {
+            "range": "$100-200K",
+            "count": 1
+          }
+        ],
+        "monthly_evolution": [
+          {
+            "month_str": "2025-05",
+            "aov": 35838.54
+          },
+          {
+            "month_str": "2025-06",
+            "aov": 32299.16
+          },
+          {
+            "month_str": "2025-07",
+            "aov": 45047.57
+          },
+          {
+            "month_str": "2025-08",
+            "aov": 43746.33
+          },
+          {
+            "month_str": "2025-09",
+            "aov": 27966.02
+          },
+          {
+            "month_str": "2025-10",
+            "aov": 24426.9
+          },
+          {
+            "month_str": "2025-11",
+            "aov": 14758.64
+          },
+          {
+            "month_str": "2025-12",
+            "aov": 37886.18
+          },
+          {
+            "month_str": "2026-01",
+            "aov": 43763.31
+          },
+          {
+            "month_str": "2026-02",
+            "aov": 21285.21
+          },
+          {
+            "month_str": "2026-03",
+            "aov": 33349.13
+          },
+          {
+            "month_str": "2026-04",
+            "aov": 28197.8
+          },
+          {
+            "month_str": "2026-05",
+            "aov": 47176.9
+          }
+        ],
+        "new_vs_returning": {
+          "new_aov": 36294.65,
+          "returning_aov": 31867.77
+        },
+        "status": "ok"
+      }
+    },
+    "13": {
+      "number": 13,
+      "name": "Revenue por categoría",
+      "category": "Revenue",
+      "data": {
+        "categories": [
+          {
+            "category": "Campera Puffer Negra",
+            "revenue": 405000.0,
+            "units": 9,
+            "products": 1,
+            "pct": 17.4,
+            "trend_pct": -50.0
+          },
+          {
+            "category": "Buzo Oversize Gris",
+            "revenue": 374000.0,
+            "units": 17,
+            "products": 2,
+            "pct": 16.0,
+            "trend_pct": 0.0
+          },
+          {
+            "category": "Camisa Lino Blanca",
+            "revenue": 312000.0,
+            "units": 16,
+            "products": 2,
+            "pct": 13.4,
+            "trend_pct": -87.5
+          },
+          {
+            "category": "Pantalón Jogger Negro",
+            "revenue": 296000.0,
+            "units": 16,
+            "products": 2,
+            "pct": 12.7,
+            "trend_pct": -33.3
+          },
+          {
+            "category": "Buzo Oversize Negro",
+            "revenue": 176000.0,
+            "units": 8,
+            "products": 1,
+            "pct": 7.6,
+            "trend_pct": -50.0
+          },
+          {
+            "category": "Riñonera",
+            "revenue": 150000.0,
+            "units": 12,
+            "products": 1,
+            "pct": 6.4,
+            "trend_pct": 200.0
+          },
+          {
+            "category": "Short Surf Negro",
+            "revenue": 130500.0,
+            "units": 9,
+            "products": 1,
+            "pct": 5.6,
+            "trend_pct": 200.0
+          },
+          {
+            "category": "Pantalón Jogger Gris",
+            "revenue": 111000.0,
+            "units": 6,
+            "products": 1,
+            "pct": 4.8,
+            "trend_pct": -100.0
+          },
+          {
+            "category": "Remera Básica Blanca",
+            "revenue": 102000.0,
+            "units": 12,
+            "products": 2,
+            "pct": 4.4,
+            "trend_pct": 100.0
+          },
+          {
+            "category": "Remera Básica Negra",
+            "revenue": 93500.0,
+            "units": 11,
+            "products": 2,
+            "pct": 4.0,
+            "trend_pct": 0.0
+          },
+          {
+            "category": "Gorra",
+            "revenue": 75900.0,
+            "units": 11,
+            "products": 2,
+            "pct": 3.3,
+            "trend_pct": 0.0
+          },
+          {
+            "category": "Short Surf Verde",
+            "revenue": 58000.0,
+            "units": 4,
+            "products": 1,
+            "pct": 2.5,
+            "trend_pct": 100.0
+          },
+          {
+            "category": "Medias Logo",
+            "revenue": 40500.0,
+            "units": 9,
+            "products": 1,
+            "pct": 1.7,
+            "trend_pct": -33.3
+          },
+          {
+            "category": "Sticker",
+            "revenue": 6000.0,
+            "units": 4,
+            "products": 1,
+            "pct": 0.3,
+            "trend_pct": -66.7
+          }
+        ],
+        "total_revenue": 2330400.0,
+        "status": "ok"
+      }
+    },
+    "14": {
+      "number": 14,
+      "name": "Impacto de descuentos",
+      "category": "Revenue",
+      "data": {
+        "comparison": {
+          "with_discount": {
+            "orders": 12,
+            "aov": 21617.21,
+            "revenue": 259406.55,
+            "pct_orders": 15.0
+          },
+          "without_discount": {
+            "orders": 68,
+            "aov": 35108.92,
+            "revenue": 2387406.6,
+            "pct_orders": 85.0
+          }
+        },
+        "top_coupons": [
+          {
+            "coupon": "WELCOME10",
+            "uses": 5,
+            "revenue": 125601.34,
+            "aov": 25120.27
+          },
+          {
+            "coupon": "VIP15",
+            "uses": 3,
+            "revenue": 49198.1,
+            "aov": 16399.37
+          },
+          {
+            "coupon": "SALE20",
+            "uses": 2,
+            "revenue": 46328.13,
+            "aov": 23164.06
+          },
+          {
+            "coupon": "FREESHIP",
+            "uses": 2,
+            "revenue": 38278.98,
+            "aov": 19139.49
+          }
+        ],
+        "total_discount_amount": 39515.0,
+        "status": "ok"
+      }
+    },
+    "15": {
+      "number": 15,
+      "name": "Heatmap por provincia",
+      "category": "Geográfico",
+      "data": {
+        "provinces": [
+          {
+            "state": "Buenos Aires",
+            "orders": 30,
+            "revenue": 839386.88,
+            "aov": 27979.56,
+            "customers": 16,
+            "pct_revenue": 31.7
+          },
+          {
+            "state": "Tucumán",
+            "orders": 6,
+            "revenue": 329556.9,
+            "aov": 54926.15,
+            "customers": 5,
+            "pct_revenue": 12.5
+          },
+          {
+            "state": "Santa Fe",
+            "orders": 7,
+            "revenue": 313002.74,
+            "aov": 44714.68,
+            "customers": 7,
+            "pct_revenue": 11.8
+          },
+          {
+            "state": "Córdoba",
+            "orders": 9,
+            "revenue": 287589.71,
+            "aov": 31954.41,
+            "customers": 6,
+            "pct_revenue": 10.9
+          },
+          {
+            "state": "Neuquén",
+            "orders": 7,
+            "revenue": 271408.22,
+            "aov": 38772.6,
+            "customers": 7,
+            "pct_revenue": 10.3
+          },
+          {
+            "state": "Misiones",
+            "orders": 4,
+            "revenue": 128819.98,
+            "aov": 32205.0,
+            "customers": 4,
+            "pct_revenue": 4.9
+          },
+          {
+            "state": "Mendoza",
+            "orders": 4,
+            "revenue": 126150.41,
+            "aov": 31537.6,
+            "customers": 4,
+            "pct_revenue": 4.8
+          },
+          {
+            "state": "San Juan",
+            "orders": 2,
+            "revenue": 105256.34,
+            "aov": 52628.17,
+            "customers": 2,
+            "pct_revenue": 4.0
+          },
+          {
+            "state": "Chubut",
+            "orders": 4,
+            "revenue": 82982.8,
+            "aov": 20745.7,
+            "customers": 4,
+            "pct_revenue": 3.1
+          },
+          {
+            "state": "Entre Ríos",
+            "orders": 3,
+            "revenue": 79913.38,
+            "aov": 26637.79,
+            "customers": 3,
+            "pct_revenue": 3.0
+          },
+          {
+            "state": "Río Negro",
+            "orders": 2,
+            "revenue": 42143.25,
+            "aov": 21071.62,
+            "customers": 2,
+            "pct_revenue": 1.6
+          },
+          {
+            "state": "Salta",
+            "orders": 2,
+            "revenue": 40602.54,
+            "aov": 20301.27,
+            "customers": 2,
+            "pct_revenue": 1.5
+          }
+        ],
+        "total_provinces": 12,
+        "status": "ok"
+      }
+    },
+    "16": {
+      "number": 16,
+      "name": "Costo de envío vs conversión",
+      "category": "Geográfico",
+      "data": {
+        "states": [
+          {
+            "state": "Buenos Aires",
+            "avg_shipping": 3169.56,
+            "order_count": 30,
+            "free_shipping_pct": 10.0,
+            "avg_total": 27979.56,
+            "flagged": false
+          },
+          {
+            "state": "Córdoba",
+            "avg_shipping": 5414.41,
+            "order_count": 9,
+            "free_shipping_pct": 11.1,
+            "avg_total": 31954.41,
+            "flagged": false
+          },
+          {
+            "state": "Neuquén",
+            "avg_shipping": 6329.75,
+            "order_count": 7,
+            "free_shipping_pct": 0.0,
+            "avg_total": 38772.6,
+            "flagged": false
+          },
+          {
+            "state": "Santa Fe",
+            "avg_shipping": 5371.82,
+            "order_count": 7,
+            "free_shipping_pct": 14.3,
+            "avg_total": 44714.68,
+            "flagged": false
+          },
+          {
+            "state": "Tucumán",
+            "avg_shipping": 6526.15,
+            "order_count": 6,
+            "free_shipping_pct": 0.0,
+            "avg_total": 54926.15,
+            "flagged": false
+          },
+          {
+            "state": "Chubut",
+            "avg_shipping": 5195.7,
+            "order_count": 4,
+            "free_shipping_pct": 25.0,
+            "avg_total": 20745.7,
+            "flagged": false
+          },
+          {
+            "state": "Mendoza",
+            "avg_shipping": 3162.6,
+            "order_count": 4,
+            "free_shipping_pct": 50.0,
+            "avg_total": 31537.6,
+            "flagged": false
+          },
+          {
+            "state": "Misiones",
+            "avg_shipping": 6255.0,
+            "order_count": 4,
+            "free_shipping_pct": 0.0,
+            "avg_total": 32205.0,
+            "flagged": false
+          },
+          {
+            "state": "Entre Ríos",
+            "avg_shipping": 3504.46,
+            "order_count": 3,
+            "free_shipping_pct": 33.3,
+            "avg_total": 26637.79,
+            "flagged": false
+          },
+          {
+            "state": "Río Negro",
+            "avg_shipping": 2321.62,
+            "order_count": 2,
+            "free_shipping_pct": 50.0,
+            "avg_total": 21071.62,
+            "flagged": false
+          },
+          {
+            "state": "Salta",
+            "avg_shipping": 3238.77,
+            "order_count": 2,
+            "free_shipping_pct": 50.0,
+            "avg_total": 20301.27,
+            "flagged": false
+          },
+          {
+            "state": "San Juan",
+            "avg_shipping": 5478.17,
+            "order_count": 2,
+            "free_shipping_pct": 0.0,
+            "avg_total": 52628.17,
+            "flagged": false
+          }
+        ],
+        "overall_avg_shipping": 4449.1,
+        "overall_free_pct": 13.8,
+        "status": "ok"
+      }
+    },
+    "17": {
+      "number": 17,
+      "name": "Tasa de cancelación",
+      "category": "Operativo",
+      "data": {
+        "total_orders": 80,
+        "cancelled_orders": 8,
+        "cancel_rate": 10.0,
+        "monthly_trend": [
+          {
+            "month_str": "2025-05",
+            "rate": 0.0,
+            "cancelled": 0,
+            "total": 6
+          },
+          {
+            "month_str": "2025-06",
+            "rate": 16.67,
+            "cancelled": 1,
+            "total": 6
+          },
+          {
+            "month_str": "2025-07",
+            "rate": 14.29,
+            "cancelled": 1,
+            "total": 7
+          },
+          {
+            "month_str": "2025-08",
+            "rate": 0.0,
+            "cancelled": 0,
+            "total": 5
+          },
+          {
+            "month_str": "2025-09",
+            "rate": 12.5,
+            "cancelled": 1,
+            "total": 8
+          },
+          {
+            "month_str": "2025-10",
+            "rate": 0.0,
+            "cancelled": 0,
+            "total": 14
+          },
+          {
+            "month_str": "2025-11",
+            "rate": 0.0,
+            "cancelled": 0,
+            "total": 4
+          },
+          {
+            "month_str": "2025-12",
+            "rate": 20.0,
+            "cancelled": 1,
+            "total": 5
+          },
+          {
+            "month_str": "2026-01",
+            "rate": 10.0,
+            "cancelled": 1,
+            "total": 10
+          },
+          {
+            "month_str": "2026-02",
+            "rate": 20.0,
+            "cancelled": 1,
+            "total": 5
+          },
+          {
+            "month_str": "2026-03",
+            "rate": 20.0,
+            "cancelled": 1,
+            "total": 5
+          },
+          {
+            "month_str": "2026-04",
+            "rate": 0.0,
+            "cancelled": 0,
+            "total": 3
+          },
+          {
+            "month_str": "2026-05",
+            "rate": 50.0,
+            "cancelled": 1,
+            "total": 2
+          }
+        ],
+        "reasons": [
+          {
+            "reason": "Demora en el envío",
+            "count": 3
+          },
+          {
+            "reason": "Stock no disponible",
+            "count": 2
+          },
+          {
+            "reason": "Cambio de opinión",
+            "count": 2
+          },
+          {
+            "reason": "Producto duplicado",
+            "count": 1
+          }
+        ],
+        "by_payment_method": [
+          {
+            "payment_method": "Tarjeta de crédito Visa",
+            "total": 9,
+            "cancelled": 2,
+            "rate": 22.22
+          },
+          {
+            "payment_method": "Tarjeta de crédito Mastercard",
+            "total": 5,
+            "cancelled": 1,
+            "rate": 20.0
+          },
+          {
+            "payment_method": "Transferencia bancaria",
+            "total": 17,
+            "cancelled": 2,
+            "rate": 11.76
+          },
+          {
+            "payment_method": "Mercado Pago",
+            "total": 43,
+            "cancelled": 3,
+            "rate": 6.98
+          },
+          {
+            "payment_method": "Efectivo (Pago Fácil)",
+            "total": 6,
+            "cancelled": 0,
+            "rate": 0.0
+          }
+        ],
+        "status": "ok"
+      }
+    },
+    "18": {
+      "number": 18,
+      "name": "Mix de medios de pago",
+      "category": "Operativo",
+      "data": {
+        "payment_methods": [
+          {
+            "payment_method": "Mercado Pago",
+            "order_count": 43,
+            "revenue": 1566662.86,
+            "aov": 36434.02,
+            "pct_orders": 53.8,
+            "pct_revenue": 59.2
+          },
+          {
+            "payment_method": "Transferencia bancaria",
+            "order_count": 17,
+            "revenue": 527853.89,
+            "aov": 31050.23,
+            "pct_orders": 21.2,
+            "pct_revenue": 19.9
+          },
+          {
+            "payment_method": "Tarjeta de crédito Visa",
+            "order_count": 9,
+            "revenue": 253712.35,
+            "aov": 28190.26,
+            "pct_orders": 11.2,
+            "pct_revenue": 9.6
+          },
+          {
+            "payment_method": "Tarjeta de crédito Mastercard",
+            "order_count": 5,
+            "revenue": 159512.05,
+            "aov": 31902.41,
+            "pct_orders": 6.2,
+            "pct_revenue": 6.0
+          },
+          {
+            "payment_method": "Efectivo (Pago Fácil)",
+            "order_count": 6,
+            "revenue": 139072.0,
+            "aov": 23178.67,
+            "pct_orders": 7.5,
+            "pct_revenue": 5.3
+          }
+        ],
+        "monthly_trend": [
+          {
+            "month_str": "2025-05",
+            "payment_method": "Efectivo (Pago Fácil)",
+            "count": 1
+          },
+          {
+            "month_str": "2025-05",
+            "payment_method": "Mercado Pago",
+            "count": 2
+          },
+          {
+            "month_str": "2025-05",
+            "payment_method": "Tarjeta de crédito Visa",
+            "count": 2
+          },
+          {
+            "month_str": "2025-05",
+            "payment_method": "Transferencia bancaria",
+            "count": 1
+          },
+          {
+            "month_str": "2025-06",
+            "payment_method": "Mercado Pago",
+            "count": 2
+          },
+          {
+            "month_str": "2025-06",
+            "payment_method": "Tarjeta de crédito Mastercard",
+            "count": 1
+          },
+          {
+            "month_str": "2025-06",
+            "payment_method": "Tarjeta de crédito Visa",
+            "count": 1
+          },
+          {
+            "month_str": "2025-06",
+            "payment_method": "Transferencia bancaria",
+            "count": 2
+          },
+          {
+            "month_str": "2025-07",
+            "payment_method": "Mercado Pago",
+            "count": 4
+          },
+          {
+            "month_str": "2025-07",
+            "payment_method": "Tarjeta de crédito Mastercard",
+            "count": 1
+          },
+          {
+            "month_str": "2025-07",
+            "payment_method": "Tarjeta de crédito Visa",
+            "count": 1
+          },
+          {
+            "month_str": "2025-07",
+            "payment_method": "Transferencia bancaria",
+            "count": 1
+          },
+          {
+            "month_str": "2025-08",
+            "payment_method": "Mercado Pago",
+            "count": 2
+          },
+          {
+            "month_str": "2025-08",
+            "payment_method": "Tarjeta de crédito Mastercard",
+            "count": 1
+          },
+          {
+            "month_str": "2025-08",
+            "payment_method": "Transferencia bancaria",
+            "count": 2
+          },
+          {
+            "month_str": "2025-09",
+            "payment_method": "Efectivo (Pago Fácil)",
+            "count": 1
+          },
+          {
+            "month_str": "2025-09",
+            "payment_method": "Mercado Pago",
+            "count": 6
+          },
+          {
+            "month_str": "2025-09",
+            "payment_method": "Tarjeta de crédito Visa",
+            "count": 1
+          },
+          {
+            "month_str": "2025-10",
+            "payment_method": "Efectivo (Pago Fácil)",
+            "count": 2
+          },
+          {
+            "month_str": "2025-10",
+            "payment_method": "Mercado Pago",
+            "count": 8
+          },
+          {
+            "month_str": "2025-10",
+            "payment_method": "Tarjeta de crédito Visa",
+            "count": 1
+          },
+          {
+            "month_str": "2025-10",
+            "payment_method": "Transferencia bancaria",
+            "count": 3
+          },
+          {
+            "month_str": "2025-11",
+            "payment_method": "Mercado Pago",
+            "count": 3
+          },
+          {
+            "month_str": "2025-11",
+            "payment_method": "Transferencia bancaria",
+            "count": 1
+          },
+          {
+            "month_str": "2025-12",
+            "payment_method": "Mercado Pago",
+            "count": 1
+          },
+          {
+            "month_str": "2025-12",
+            "payment_method": "Tarjeta de crédito Mastercard",
+            "count": 1
+          },
+          {
+            "month_str": "2025-12",
+            "payment_method": "Tarjeta de crédito Visa",
+            "count": 1
+          },
+          {
+            "month_str": "2025-12",
+            "payment_method": "Transferencia bancaria",
+            "count": 2
+          },
+          {
+            "month_str": "2026-01",
+            "payment_method": "Efectivo (Pago Fácil)",
+            "count": 2
+          },
+          {
+            "month_str": "2026-01",
+            "payment_method": "Mercado Pago",
+            "count": 4
+          },
+          {
+            "month_str": "2026-01",
+            "payment_method": "Tarjeta de crédito Mastercard",
+            "count": 1
+          },
+          {
+            "month_str": "2026-01",
+            "payment_method": "Tarjeta de crédito Visa",
+            "count": 1
+          },
+          {
+            "month_str": "2026-01",
+            "payment_method": "Transferencia bancaria",
+            "count": 2
+          },
+          {
+            "month_str": "2026-02",
+            "payment_method": "Mercado Pago",
+            "count": 5
+          },
+          {
+            "month_str": "2026-03",
+            "payment_method": "Mercado Pago",
+            "count": 3
+          },
+          {
+            "month_str": "2026-03",
+            "payment_method": "Transferencia bancaria",
+            "count": 2
+          },
+          {
+            "month_str": "2026-04",
+            "payment_method": "Mercado Pago",
+            "count": 2
+          },
+          {
+            "month_str": "2026-04",
+            "payment_method": "Transferencia bancaria",
+            "count": 1
+          },
+          {
+            "month_str": "2026-05",
+            "payment_method": "Mercado Pago",
+            "count": 1
+          },
+          {
+            "month_str": "2026-05",
+            "payment_method": "Tarjeta de crédito Visa",
+            "count": 1
+          }
+        ],
+        "status": "ok"
+      }
+    },
+    "19": {
+      "number": 19,
+      "name": "Oportunidades de bundling",
+      "category": "Estratégico",
+      "data": {
+        "bundles": [
+          {
+            "items": [
+              "Short Surf Verde",
+              "Sticker Pack"
+            ],
+            "individual_total": 16000.0,
+            "bundle_price_10pct": 14400.0,
+            "bundle_price_15pct": 13600.0,
+            "lift": 5.0,
+            "historical_copurchases": 1,
+            "support": 1.25
+          },
+          {
+            "items": [
+              "Gorra Trucker Beige",
+              "Sticker Pack"
+            ],
+            "individual_total": 8400.0,
+            "bundle_price_10pct": 7560.0,
+            "bundle_price_15pct": 7140.0,
+            "lift": 4.0,
+            "historical_copurchases": 1,
+            "support": 1.25
+          },
+          {
+            "items": [
+              "Gorra Trucker Negra",
+              "Remera Básica Blanca"
+            ],
+            "individual_total": 15400.0,
+            "bundle_price_10pct": 13860.0,
+            "bundle_price_15pct": 13090.0,
+            "lift": 3.2,
+            "historical_copurchases": 2,
+            "support": 2.5
+          },
+          {
+            "items": [
+              "Gorra Trucker Negra",
+              "Riñonera Crossbody Negra"
+            ],
+            "individual_total": 19400.0,
+            "bundle_price_10pct": 17460.0,
+            "bundle_price_15pct": 16490.0,
+            "lift": 3.2,
+            "historical_copurchases": 2,
+            "support": 2.5
+          },
+          {
+            "items": [
+              "Medias Logo",
+              "Short Surf Negro"
+            ],
+            "individual_total": 19000.0,
+            "bundle_price_10pct": 17100.0,
+            "bundle_price_15pct": 16150.0,
+            "lift": 2.54,
+            "historical_copurchases": 2,
+            "support": 2.5
+          },
+          {
+            "items": [
+              "Buzo Oversize Gris",
+              "Pantalón Jogger Gris"
+            ],
+            "individual_total": 40500.0,
+            "bundle_price_10pct": 36450.0,
+            "bundle_price_15pct": 34425.0,
+            "lift": 2.35,
+            "historical_copurchases": 3,
+            "support": 3.75
+          },
+          {
+            "items": [
+              "Gorra Trucker Beige",
+              "Short Surf Negro"
+            ],
+            "individual_total": 21400.0,
+            "bundle_price_10pct": 19260.0,
+            "bundle_price_15pct": 18190.0,
+            "lift": 2.29,
+            "historical_copurchases": 1,
+            "support": 1.25
+          },
+          {
+            "items": [
+              "Camisa Lino Blanca",
+              "Pantalón Jogger Gris"
+            ],
+            "individual_total": 38000.0,
+            "bundle_price_10pct": 34200.0,
+            "bundle_price_15pct": 32300.0,
+            "lift": 2.22,
+            "historical_copurchases": 2,
+            "support": 2.5
+          },
+          {
+            "items": [
+              "Medias Logo",
+              "Short Surf Verde"
+            ],
+            "individual_total": 19000.0,
+            "bundle_price_10pct": 17100.0,
+            "bundle_price_15pct": 16150.0,
+            "lift": 2.22,
+            "historical_copurchases": 1,
+            "support": 1.25
+          },
+          {
+            "items": [
+              "Riñonera Crossbody Negra",
+              "Sticker Pack"
+            ],
+            "individual_total": 14000.0,
+            "bundle_price_10pct": 12600.0,
+            "bundle_price_15pct": 11900.0,
+            "lift": 2.0,
+            "historical_copurchases": 1,
+            "support": 1.25
+          },
+          {
+            "items": [
+              "Riñonera Crossbody Negra",
+              "Short Surf Verde"
+            ],
+            "individual_total": 27000.0,
+            "bundle_price_10pct": 24300.0,
+            "bundle_price_15pct": 22950.0,
+            "lift": 2.0,
+            "historical_copurchases": 1,
+            "support": 1.25
+          },
+          {
+            "items": [
+              "Campera Puffer Negra",
+              "Medias Logo"
+            ],
+            "individual_total": 49500.0,
+            "bundle_price_10pct": 44550.0,
+            "bundle_price_15pct": 42075.0,
+            "lift": 1.98,
+            "historical_copurchases": 2,
+            "support": 2.5
+          },
+          {
+            "items": [
+              "Gorra Trucker Negra",
+              "Medias Logo"
+            ],
+            "individual_total": 11400.0,
+            "bundle_price_10pct": 10260.0,
+            "bundle_price_15pct": 9690.0,
+            "lift": 1.78,
+            "historical_copurchases": 1,
+            "support": 1.25
+          },
+          {
+            "items": [
+              "Pantalón Jogger Negro",
+              "Sticker Pack"
+            ],
+            "individual_total": 20000.0,
+            "bundle_price_10pct": 18000.0,
+            "bundle_price_15pct": 17000.0,
+            "lift": 1.67,
+            "historical_copurchases": 1,
+            "support": 1.25
+          },
+          {
+            "items": [
+              "Gorra Trucker Beige",
+              "Riñonera Crossbody Negra"
+            ],
+            "individual_total": 19400.0,
+            "bundle_price_10pct": 17460.0,
+            "bundle_price_15pct": 16490.0,
+            "lift": 1.6,
+            "historical_copurchases": 1,
+            "support": 1.25
+          }
+        ],
+        "status": "ok"
+      }
+    },
+    "20": {
+      "number": 20,
+      "name": "Estacionalidad",
+      "category": "Estratégico",
+      "data": {
+        "by_month": [
+          {
+            "month": "Ene",
+            "revenue": 437633.09,
+            "orders": 10
+          },
+          {
+            "month": "Feb",
+            "revenue": 106426.03,
+            "orders": 5
+          },
+          {
+            "month": "Mar",
+            "revenue": 166745.67,
+            "orders": 5
+          },
+          {
+            "month": "Abr",
+            "revenue": 84593.4,
+            "orders": 3
+          },
+          {
+            "month": "May",
+            "revenue": 309385.02,
+            "orders": 8
+          },
+          {
+            "month": "Jun",
+            "revenue": 193794.96,
+            "orders": 6
+          },
+          {
+            "month": "Jul",
+            "revenue": 315332.96,
+            "orders": 7
+          },
+          {
+            "month": "Ago",
+            "revenue": 218731.67,
+            "orders": 5
+          },
+          {
+            "month": "Sep",
+            "revenue": 223728.2,
+            "orders": 8
+          },
+          {
+            "month": "Oct",
+            "revenue": 341976.65,
+            "orders": 14
+          },
+          {
+            "month": "Nov",
+            "revenue": 59034.58,
+            "orders": 4
+          },
+          {
+            "month": "Dic",
+            "revenue": 189430.92,
+            "orders": 5
+          }
+        ],
+        "by_day_of_week": [
+          {
+            "day": "Lunes",
+            "revenue": 498698.53,
+            "orders": 11
+          },
+          {
+            "day": "Martes",
+            "revenue": 278432.71,
+            "orders": 10
+          },
+          {
+            "day": "Miércoles",
+            "revenue": 300410.82,
+            "orders": 10
+          },
+          {
+            "day": "Jueves",
+            "revenue": 586099.62,
+            "orders": 18
+          },
+          {
+            "day": "Viernes",
+            "revenue": 317460.25,
+            "orders": 9
+          },
+          {
+            "day": "Sábado",
+            "revenue": 492714.23,
+            "orders": 13
+          },
+          {
+            "day": "Domingo",
+            "revenue": 172996.99,
+            "orders": 9
+          }
+        ],
+        "by_hour": [
+          {
+            "hour": 0,
+            "revenue": 63150.69,
+            "orders": 2
+          },
+          {
+            "hour": 1,
+            "revenue": 114452.03,
+            "orders": 4
+          },
+          {
+            "hour": 2,
+            "revenue": 89616.72,
+            "orders": 2
+          },
+          {
+            "hour": 3,
+            "revenue": 28759.91,
+            "orders": 2
+          },
+          {
+            "hour": 4,
+            "revenue": 96972.71,
+            "orders": 6
+          },
+          {
+            "hour": 5,
+            "revenue": 80841.43,
+            "orders": 3
+          },
+          {
+            "hour": 6,
+            "revenue": 110473.04,
+            "orders": 5
+          },
+          {
+            "hour": 7,
+            "revenue": 150996.58,
+            "orders": 2
+          },
+          {
+            "hour": 8,
+            "revenue": 85124.52,
+            "orders": 1
+          },
+          {
+            "hour": 9,
+            "revenue": 150618.7,
+            "orders": 3
+          },
+          {
+            "hour": 10,
+            "revenue": 220616.91,
+            "orders": 7
+          },
+          {
+            "hour": 11,
+            "revenue": 94468.91,
+            "orders": 3
+          },
+          {
+            "hour": 12,
+            "revenue": 121986.91,
+            "orders": 3
+          },
+          {
+            "hour": 13,
+            "revenue": 139297.32,
+            "orders": 4
+          },
+          {
+            "hour": 14,
+            "revenue": 28000.79,
+            "orders": 1
+          },
+          {
+            "hour": 15,
+            "revenue": 153667.45,
+            "orders": 4
+          },
+          {
+            "hour": 16,
+            "revenue": 99831.92,
+            "orders": 2
+          },
+          {
+            "hour": 17,
+            "revenue": 167521.21,
+            "orders": 7
+          },
+          {
+            "hour": 19,
+            "revenue": 213184.94,
+            "orders": 3
+          },
+          {
+            "hour": 20,
+            "revenue": 209622.63,
+            "orders": 6
+          },
+          {
+            "hour": 21,
+            "revenue": 163827.69,
+            "orders": 4
+          },
+          {
+            "hour": 22,
+            "revenue": 32540.96,
+            "orders": 2
+          },
+          {
+            "hour": 23,
+            "revenue": 31239.18,
+            "orders": 4
+          }
+        ],
+        "peak_month": "Ene",
+        "low_month": "Nov",
+        "peak_day": "Jueves",
+        "status": "ok"
+      }
+    }
+  }
+}
