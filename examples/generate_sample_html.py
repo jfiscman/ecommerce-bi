@@ -42,7 +42,7 @@ def trend_badge(v):
     if v is None:
         return ""
     arrow = "↑" if v > 0 else "↓" if v < 0 else "→"
-    color = "var(--green)" if v > 0 else "var(--red)" if v < 0 else "var(--text-muted)"
+    color = "var(--positive)" if v > 0 else "var(--negative)" if v < 0 else "var(--text-muted)"
     return f'<span style="color:{color};font-weight:600;">{arrow} {abs(v):.1f}%</span>'
 
 
@@ -158,7 +158,7 @@ def render_9_cohorts(d):
     rows = []
     for cohort in d.get("cohort_matrix", [])[-8:]:
         cells = "".join(
-            f'<td style="background:rgba(228,255,90,{(cohort.get(f"m{i}", 0) or 0) / 100 * 0.5});">{(cohort.get(f"m{i}") or 0):.0f}%</td>'
+            f'<td style="background:rgba(30,64,175,{(cohort.get(f"m{i}", 0) or 0) / 100 * 0.18});">{(cohort.get(f"m{i}") or 0):.0f}%</td>'
             for i in range(months_shown)
         )
         rows.append(f"<tr><td><b>{cohort['cohort']}</b></td>{cells}</tr>")
@@ -347,74 +347,74 @@ RENDERERS = {
 
 CSS = """
 :root {
-  --bg: #0a0a0a;
-  --bg-card: #141414;
-  --border: #262626;
-  --text: #f5f5f5;
-  --text-muted: #a3a3a3;
-  --text-dim: #737373;
-  --lime: #E4FF5A;
-  --blue: #3346FF;
-  --green: #22c55e;
-  --red: #ef4444;
-  --font: 'Geist', -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
+  --bg: #ffffff;
+  --bg-subtle: #fafafa;
+  --bg-card: #ffffff;
+  --bg-card-emphasis: #f4f6f8;
+  --border: #e5e7eb;
+  --text: #111827;
+  --text-secondary: #4b5563;
+  --text-muted: #6b7280;
+  --accent: #1e40af;
+  --accent-soft: #eff6ff;
+  --positive: #047857;
+  --negative: #b91c1c;
+  --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
   background: var(--bg);
   color: var(--text);
   font-family: var(--font);
-  font-weight: 400;
-  line-height: 1.5;
-  padding: 48px 24px;
-  background-image:
-    radial-gradient(circle at 20% 10%, rgba(228,255,90,0.04), transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(51,70,255,0.04), transparent 50%);
+  font-size: 15px;
+  line-height: 1.55;
+  padding: 56px 24px;
 }
 .container { max-width: 1100px; margin: 0 auto; }
-header { margin-bottom: 64px; padding-bottom: 32px; border-bottom: 1px solid var(--border); }
-.brand { color: var(--lime); font-size: 14px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; }
-h1 { font-size: 48px; font-weight: 700; margin: 12px 0 8px; letter-spacing: -0.02em; }
-.subtitle { color: var(--text-muted); font-size: 16px; }
+header { margin-bottom: 56px; padding-bottom: 28px; border-bottom: 1px solid var(--border); }
+h1 { font-size: 32px; font-weight: 600; margin: 4px 0 6px; letter-spacing: -0.01em; }
+.subtitle { color: var(--text-secondary); font-size: 14px; }
 .mode-badge {
-  display: inline-block; background: var(--lime); color: #000;
-  font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
-  padding: 4px 10px; border-radius: 4px; margin-left: 8px; vertical-align: middle;
+  display: inline-block; background: var(--accent-soft); color: var(--accent);
+  font-size: 11px; font-weight: 600; letter-spacing: 0.08em;
+  padding: 3px 9px; border-radius: 4px; margin-left: 8px;
+  vertical-align: middle; text-transform: uppercase;
 }
 .hero-grid {
-  display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 32px;
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 28px;
 }
 .hero {
   background: var(--bg-card); border: 1px solid var(--border);
-  border-radius: 8px; padding: 20px;
+  border-radius: 6px; padding: 18px;
 }
-.hero-num { font-size: 32px; font-weight: 700; color: var(--lime); }
-.hero-lbl { color: var(--text-muted); font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; margin-top: 4px; }
-.hero-trend { font-size: 12px; margin-top: 8px; }
-section.category { margin: 72px 0 32px; }
+.hero-num { font-size: 26px; font-weight: 600; color: var(--text); }
+.hero-lbl { color: var(--text-muted); font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; margin-top: 4px; }
+.hero-trend { font-size: 12px; margin-top: 8px; color: var(--text-secondary); }
+section.category { margin: 56px 0 24px; }
 section.category h2 {
-  font-size: 12px; font-weight: 700; text-transform: uppercase;
-  letter-spacing: 0.2em; color: var(--lime); margin-bottom: 24px;
-  border-top: 1px solid var(--border); padding-top: 32px;
+  font-size: 12px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.12em; color: var(--text-secondary); margin-bottom: 20px;
+  border-top: 1px solid var(--border); padding-top: 24px;
 }
-.analysis { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 28px; margin-bottom: 16px; }
-.analysis h3 { font-size: 20px; font-weight: 600; margin-bottom: 16px; }
-.analysis h3 .num { color: var(--text-dim); margin-right: 8px; font-weight: 400; }
-.kpi-row { color: var(--text-muted); font-size: 14px; margin-bottom: 12px; }
-.stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin: 16px 0; }
-.stat { background: rgba(228,255,90,0.04); border: 1px solid rgba(228,255,90,0.15); border-radius: 6px; padding: 14px; }
-.stat-num { font-size: 22px; font-weight: 700; color: var(--lime); }
+.analysis { background: var(--bg-card); border: 1px solid var(--border); border-radius: 6px; padding: 24px; margin-bottom: 14px; }
+.analysis h3 { font-size: 18px; font-weight: 600; margin-bottom: 14px; color: var(--text); }
+.analysis h3 .num { color: var(--text-muted); margin-right: 8px; font-weight: 400; }
+.kpi-row { color: var(--text-secondary); font-size: 14px; margin-bottom: 10px; }
+.stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; margin: 14px 0; }
+.stat { background: var(--bg-card-emphasis); border: 1px solid var(--border); border-radius: 4px; padding: 12px; }
+.stat-num { font-size: 20px; font-weight: 600; color: var(--text); }
 .stat-lbl { color: var(--text-muted); font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; margin-top: 4px; }
-table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 14px; }
-th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); }
-th { color: var(--text-dim); font-weight: 500; text-transform: uppercase; font-size: 11px; letter-spacing: 0.08em; }
-td b { color: var(--lime); }
+table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 14px; }
+th, td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--border); }
+th { color: var(--text-muted); font-weight: 500; text-transform: uppercase; font-size: 11px; letter-spacing: 0.08em; }
+td b { color: var(--text); font-weight: 600; }
 .insight {
-  background: rgba(228,255,90,0.06); border-left: 2px solid var(--lime);
-  padding: 12px 16px; margin-top: 16px; color: var(--text); font-size: 14px; line-height: 1.5;
+  background: var(--bg-card-emphasis); border-left: 3px solid var(--accent);
+  padding: 12px 16px; margin-top: 14px; color: var(--text); font-size: 14px; line-height: 1.55;
 }
-footer { text-align: center; color: var(--text-dim); font-size: 12px; padding: 48px 0 0; border-top: 1px solid var(--border); margin-top: 64px; }
-footer a { color: var(--lime); text-decoration: none; }
+footer { text-align: center; color: var(--text-muted); font-size: 12px; padding: 36px 0 0; border-top: 1px solid var(--border); margin-top: 56px; }
+footer a { color: var(--text-secondary); text-decoration: none; }
+footer a:hover { color: var(--accent); text-decoration: underline; }
 """
 
 CATEGORY_ORDER = ["Producto", "Cliente", "Revenue", "Geográfico", "Operativo", "Estratégico"]
@@ -478,24 +478,22 @@ def main():
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BI Report — Sample · ecommerce-bi</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <title>Business Intelligence Report — Sample</title>
   <style>{CSS}</style>
 </head>
 <body>
   <div class="container">
     <header>
-      <div class="brand">ecommerce-bi · sample</div>
       <h1>Business Intelligence Report <span class="mode-badge">{data['mode'].upper()}</span></h1>
       <p class="subtitle">Tienda sintética · {summary['date_min']} → {summary['date_max']} · Plataforma: {summary['platform']}</p>
       <div class="hero-grid">{hero_cards}</div>
     </header>
     {"".join(sections)}
     <footer>
-      Generado por <a href="https://github.com/mathiaschu/ecommerce-bi">ecommerce-bi</a> ·
-      Datos sintéticos (sample del repo) · Datos no representan ninguna tienda real
+      Reporte generado con
+      <a href="https://github.com/mathiaschu/ecommerce-bi">ecommerce-bi</a>
+      · creado por
+      <a href="https://twitter.com/mathiaschu">@mathiaschu</a>
     </footer>
   </div>
 </body>
