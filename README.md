@@ -2,9 +2,9 @@
 
 > Skill de Claude Code para generar informes de Business Intelligence sobre tu tienda eCommerce a partir de un CSV de ventas.
 
-Apuntá la skill a tu export de Tiendanube, Shopify o WooCommerce y obtené un informe con hasta 38 análisis: Market Basket, RFM, cohortes, CLV, cross-sell, churn, estacionalidad, forecast y más. Output: JSON estructurado + informe HTML branded.
+Apuntá la skill a tu export de Tiendanube, Shopify o WooCommerce y obtené un informe con hasta 39 análisis: Market Basket, RFM, cohortes, CLV, cross-sell, churn, producto gateway de retención, estacionalidad, forecast y más. Output: JSON estructurado + informe HTML branded.
 
-Podés correrla en tres modos: **Lite** (20 análisis core), **Full** (38 análisis completos) o **Individual** (un análisis específico o varios, como solo el RFM, o Market Basket + Cohortes).
+Podés correrla en tres modos: **Lite** (21 análisis core), **Full** (39 análisis completos) o **Individual** (un análisis específico o varios, como solo el RFM, o Market Basket + Cohortes).
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
@@ -13,7 +13,7 @@ Podés correrla en tres modos: **Lite** (20 análisis core), **Full** (38 análi
 
 ## Análisis disponibles
 
-Lista completa de los 38 análisis que puede generar esta skill, ordenados de mayor a menor impacto típico al negocio. Cada uno se puede correr individualmente o como parte de los modos Lite / Full.
+Lista completa de los 39 análisis que puede generar esta skill, ordenados de mayor a menor impacto típico al negocio. Cada uno se puede correr individualmente o como parte de los modos Lite / Full.
 
 1. **Segmentación RFM** — Clasifica a cada cliente en 11 segmentos según cuándo compró por última vez (Recency), cuántas veces (Frequency) y cuánto gastó (Monetary). Es la base de toda estrategia de CRM y email: te dice a quién mimar (Champions), a quién reactivar (At Risk), a quién dar bienvenida (New) y a quién dejar de gastarle pauta (Lost).
 
@@ -27,69 +27,71 @@ Lista completa de los 38 análisis que puede generar esta skill, ordenados de ma
 
 6. **Tasa de recompra** — Porcentaje de clientes que compraron más de una vez y tiempo medio entre compras. Si la recompra es &lt;20% sos un negocio de adquisición pura (caro). Si es &gt;40%, podés invertir en retención. La mediana entre compras le da el ritmo a tus automations.
 
-7. **Productos ancla (gateway products)** — Identifica los productos que más aparecen en órdenes multi-producto y sus mejores co-compras. Son los productos que abren la primera compra y arrastran al carrito otros. Invertir pauta en ellos rinde doble.
+7. **Producto gateway de retención** — Para cada producto, qué porcentaje de los clientes que lo compraron como su *primera* compra volvió a comprar al menos una vez más. Compara contra el baseline global de recompra. Te dice qué meter primero en pauta: no el producto que más vende, sino el que mejor *captura* clientes que vuelven. Muchas veces son distintos. Decisión clave para definir hero products en campañas de adquisición.
 
-8. **Market Basket Analysis** — Detecta qué productos se compran juntos. Calcula pares y tríos con métricas de support, confidence y lift. Insumo directo para cross-sell, bundles, recomendaciones en PDP y módulos "compraron junto".
+8. **Productos ancla (gateway de carrito)** — Identifica los productos que más aparecen en órdenes multi-producto y sus mejores co-compras. Distinto al gateway de retención: estos abren el carrito *de la misma orden*, arrastrando otros productos. Invertir pauta en ellos rinde doble por el cross-sell que generan.
 
-9. **Oportunidades de bundling** — Toma los combos con mejor lift del Market Basket y propone bundles concretos con precio combinado. Cierra el bucle del análisis en una acción ejecutable: "armá este bundle con 10% off".
+9. **Market Basket Analysis** — Detecta qué productos se compran juntos. Calcula pares y tríos con métricas de support, confidence y lift. Insumo directo para cross-sell, bundles, recomendaciones en PDP y módulos "compraron junto".
 
-10. **Clientes VIP (top 10%)** — Identifica al top 10% de clientes por revenue y reporta su AOV, frecuencia y productos preferidos. Suelen hacer 40-60% del revenue total. Habilita programas VIP, ofertas tempranas y customer service diferenciado.
+10. **Oportunidades de bundling** — Toma los combos con mejor lift del Market Basket y propone bundles concretos con precio combinado. Cierra el bucle del análisis en una acción ejecutable: "armá este bundle con 10% off".
 
-11. **Análisis de churn** — Detecta clientes que dejaron de comprar (sin actividad por más del doble de su intervalo medio). Reporta su valor histórico y los últimos productos que compraron antes de irse, muchas veces reveladores de problemas de calidad o experiencia.
+11. **Clientes VIP (top 10%)** — Identifica al top 10% de clientes por revenue y reporta su AOV, frecuencia y productos preferidos. Suelen hacer 40-60% del revenue total. Habilita programas VIP, ofertas tempranas y customer service diferenciado.
 
-12. **Estacionalidad** — Detecta picos y valles por mes y por día de la semana. Identifica mes pico, mes valle y día más fuerte. Planificación anual de pauta, stock, lanzamientos y contenido.
+12. **Análisis de churn** — Detecta clientes que dejaron de comprar (sin actividad por más del doble de su intervalo medio). Reporta su valor histórico y los últimos productos que compraron antes de irse, muchas veces reveladores de problemas de calidad o experiencia.
 
-13. **Long tail 80/20** — Cuántos SKUs hacen el 80% del revenue. Si pocos SKUs hacen casi todo, el resto del catálogo puede ser candidato a descatalogar, liquidar o pasar a print-on-demand.
+13. **Estacionalidad** — Detecta picos y valles por mes y por día de la semana. Identifica mes pico, mes valle y día más fuerte. Planificación anual de pauta, stock, lanzamientos y contenido.
 
-14. **Ticket promedio (AOV)** — AOV global, mediano, distribución por tramo y evolución mensual. Compara nuevos vs recurrentes. KPI core de cualquier optimización (bundles, free-shipping threshold, descuentos por volumen).
+14. **Long tail 80/20** — Cuántos SKUs hacen el 80% del revenue. Si pocos SKUs hacen casi todo, el resto del catálogo puede ser candidato a descatalogar, liquidar o pasar a print-on-demand.
 
-15. **Revenue por categoría** — Mix del catálogo por categoría con porcentajes. Si una categoría concentra 70%, hay riesgo de dependencia. Si todas reparten parejo, hay oportunidad de empujar una para crecer.
+15. **Ticket promedio (AOV)** — AOV global, mediano, distribución por tramo y evolución mensual. Compara nuevos vs recurrentes. KPI core de cualquier optimización (bundles, free-shipping threshold, descuentos por volumen).
 
-16. **Impacto de descuentos** — Compara AOV con cupón vs sin cupón, % de órdenes con descuento y top cupones. Mide si el descuento *agrega* valor o *canibaliza* margen.
+16. **Revenue por categoría** — Mix del catálogo por categoría con porcentajes. Si una categoría concentra 70%, hay riesgo de dependencia. Si todas reparten parejo, hay oportunidad de empujar una para crecer.
 
-17. **Afinidad entre categorías** — Qué categorías se combinan en la misma orden. Guía cross-merchandising (landings combinadas, carruseles "outfit completo") y la navegación visual del store.
+17. **Impacto de descuentos** — Compara AOV con cupón vs sin cupón, % de órdenes con descuento y top cupones. Mide si el descuento *agrega* valor o *canibaliza* margen.
 
-18. **Recomendaciones de cross-sell** — Para cada producto top, qué otro recomendar (basado en lift y co-ocurrencia). Tabla lista para alimentar el motor de recomendaciones del store, derivada del dato real y no de heurísticas genéricas.
+18. **Afinidad entre categorías** — Qué categorías se combinan en la misma orden. Guía cross-merchandising (landings combinadas, carruseles "outfit completo") y la navegación visual del store.
 
-19. **Análisis de pricing** — Detecta productos sobre-precio o sub-precio comparados con el promedio de su categoría. Cada uno es candidato a ajuste o conversación con catálogo.
+19. **Recomendaciones de cross-sell** — Para cada producto top, qué otro recomendar (basado en lift y co-ocurrencia). Tabla lista para alimentar el motor de recomendaciones del store, derivada del dato real y no de heurísticas genéricas.
 
-20. **Análisis de precio (distribución)** — Histograma de precios y unidades vendidas por tramo. Identifica el sweet spot del catálogo, útil para curar incorporaciones futuras.
+20. **Análisis de pricing** — Detecta productos sobre-precio o sub-precio comparados con el promedio de su categoría. Cada uno es candidato a ajuste o conversación con catálogo.
 
-21. **Heatmap por provincia** — Revenue, órdenes y AOV por provincia/estado. Decisiones de pauta geo, negociación de tarifas de envío en zonas con volumen, y detección de provincias con AOV alto pero pocos pedidos (ventana de crecimiento).
+21. **Análisis de precio (distribución)** — Histograma de precios y unidades vendidas por tramo. Identifica el sweet spot del catálogo, útil para curar incorporaciones futuras.
 
-22. **Costo de envío vs conversión** — Distribución del costo de envío por tramo y correlación con cancelación. El envío es uno de los principales drivers de abandono: este análisis te da el umbral psicológico de tu base y la palanca para el threshold de envío gratis.
+22. **Heatmap por provincia** — Revenue, órdenes y AOV por provincia/estado. Decisiones de pauta geo, negociación de tarifas de envío en zonas con volumen, y detección de provincias con AOV alto pero pocos pedidos (ventana de crecimiento).
 
-23. **Penetración por ciudad** — Top ciudades por revenue y AOV (granularidad más fina que provincia). Pauta geográfica fina, decisiones de cobertura, patrones de concentración urbana.
+23. **Costo de envío vs conversión** — Distribución del costo de envío por tramo y correlación con cancelación. El envío es uno de los principales drivers de abandono: este análisis te da el umbral psicológico de tu base y la palanca para el threshold de envío gratis.
 
-24. **Eficiencia de envío gratis** — Compara AOV y conversión de órdenes con envío gratis vs pago. Evalúa si tu política de envío gratis funciona o regalás margen sin contrapartida.
+24. **Penetración por ciudad** — Top ciudades por revenue y AOV (granularidad más fina que provincia). Pauta geográfica fina, decisiones de cobertura, patrones de concentración urbana.
 
-25. **Tiempo de fulfillment** — Días entre orden y despacho: mediana, distribución y outliers. SLA operativo. Si la mediana sube mes a mes, hay un problema de logística por venir.
+25. **Eficiencia de envío gratis** — Compara AOV y conversión de órdenes con envío gratis vs pago. Evalúa si tu política de envío gratis funciona o regalás margen sin contrapartida.
 
-26. **Tasa de cancelación** — % global de canceladas, top motivos y evolución mensual. Tendencia ascendente = problema (stock, pricing, expectativa). Los motivos te dicen exactamente dónde está la fuga.
+26. **Tiempo de fulfillment** — Días entre orden y despacho: mediana, distribución y outliers. SLA operativo. Si la mediana sube mes a mes, hay un problema de logística por venir.
 
-27. **Productos con alta cancelación** — Identifica los productos con tasa de cancelación significativamente sobre la media. Cada uno es una conversación con catálogo o con el proveedor.
+27. **Tasa de cancelación** — % global de canceladas, top motivos y evolución mensual. Tendencia ascendente = problema (stock, pricing, expectativa). Los motivos te dicen exactamente dónde está la fuga.
 
-28. **Mix de medios de pago** — Distribución de órdenes y revenue por medio de pago. Si una procesadora concentra mucho con comisión alta, hay negociación pendiente. Si un medio tiene AOV mayor, empujarlo con descuento.
+28. **Productos con alta cancelación** — Identifica los productos con tasa de cancelación significativamente sobre la media. Cada uno es una conversación con catálogo o con el proveedor.
 
-29. **Medio de envío por zona** — Mix de couriers/métodos por provincia. Detecta dónde la oferta de envíos está incompleta y la conversión cae por falta de opciones.
+29. **Mix de medios de pago** — Distribución de órdenes y revenue por medio de pago. Si una procesadora concentra mucho con comisión alta, hay negociación pendiente. Si un medio tiene AOV mayor, empujarlo con descuento.
 
-30. **Forecast de ventas** — Proyección de revenue a 3 meses con ajuste estacional (requiere ≥6 meses de histórico). Planificación financiera, presupuestos, cash flow y stock para temporada alta.
+30. **Medio de envío por zona** — Mix de couriers/métodos por provincia. Detecta dónde la oferta de envíos está incompleta y la conversión cae por falta de opciones.
 
-31. **Identificación de nichos** — Clusters de productos con alta afinidad interna y bajo overlap entre sí. Detecta sub-marcas o líneas implícitas dentro del catálogo. Insumo para landings por nicho y curaduría editorial.
+31. **Forecast de ventas** — Proyección de revenue a 3 meses con ajuste estacional (requiere ≥6 meses de histórico). Planificación financiera, presupuestos, cash flow y stock para temporada alta.
 
-32. **Patrón de upgrade** — Detecta si los clientes aumentan su AOV en compras sucesivas. Si crece, el storytelling de marca está funcionando y se puede empujar premium. Si no, el techo de cada cliente es la primera compra.
+32. **Identificación de nichos** — Clusters de productos con alta afinidad interna y bajo overlap entre sí. Detecta sub-marcas o líneas implícitas dentro del catálogo. Insumo para landings por nicho y curaduría editorial.
 
-33. **Análisis de SKU/variantes** — Performance por variante (color, talle, SKU). Detecta variantes muertas y heroínas. Discontinuar lo que no rota, reforzar lo que sí. Diferencia entre "este producto vende" y "vende solo en talle M negro".
+33. **Patrón de upgrade** — Detecta si los clientes aumentan su AOV en compras sucesivas. Si crece, el storytelling de marca está funcionando y se puede empujar premium. Si no, el techo de cada cliente es la primera compra.
 
-34. **Ciclo de vida del producto** — Clasifica productos en emergente, madurez o declive según evolución de unidades. Lifecycle management: promover emergentes, exprimir maduros, liquidar declive antes de que generen stock muerto.
+34. **Análisis de SKU/variantes** — Performance por variante (color, talle, SKU). Detecta variantes muertas y heroínas. Discontinuar lo que no rota, reforzar lo que sí. Diferencia entre "este producto vende" y "vende solo en talle M negro".
 
-35. **Revenue por canal** — Distribución de revenue por canal (web, mobile, POS). Si mobile concentra órdenes pero el AOV baja, hay friction en el checkout mobile.
+35. **Ciclo de vida del producto** — Clasifica productos en emergente, madurez o declive según evolución de unidades. Lifecycle management: promover emergentes, exprimir maduros, liquidar declive antes de que generen stock muerto.
 
-36. **Análisis de canal (profundo)** — Comparativa por canal en AOV, tasa de cancelación y mix de productos. Detecta diferencias de comportamiento no obvias entre canales.
+36. **Revenue por canal** — Distribución de revenue por canal (web, mobile, POS). Si mobile concentra órdenes pero el AOV baja, hay friction en el checkout mobile.
 
-37. **Afinidad entre colores** — Combos de colores comprados juntos (parsea el nombre del producto). Merchandising fino: qué paletas funcionan, qué nuevos colores agregar al próximo drop.
+37. **Análisis de canal (profundo)** — Comparativa por canal en AOV, tasa de cancelación y mix de productos. Detecta diferencias de comportamiento no obvias entre canales.
 
-38. **Afinidad entre talles** — Combos de talles en la misma orden. Decisiones de curva de stock por talle y detección de "compra para pareja/familia" (talles muy distintos en una misma orden).
+38. **Afinidad entre colores** — Combos de colores comprados juntos (parsea el nombre del producto). Merchandising fino: qué paletas funcionan, qué nuevos colores agregar al próximo drop.
+
+39. **Afinidad entre talles** — Combos de talles en la misma orden. Decisiones de curva de stock por talle y detección de "compra para pareja/familia" (talles muy distintos en una misma orden).
 
 ---
 
@@ -110,7 +112,7 @@ Mapeo completo de columnas en [`references/csv_mapping.md`](references/csv_mappi
 
 ### Modo Lite (default)
 
-Los 20 análisis core (los más usados de la lista de arriba). Corre en ~30 segundos.
+Los 21 análisis core (los más usados de la lista de arriba). Corre en ~30 segundos.
 
 ```bash
 python3 scripts/bi_analysis.py --csv orders.csv --mode lite --output out.json
@@ -118,7 +120,7 @@ python3 scripts/bi_analysis.py --csv orders.csv --mode lite --output out.json
 
 ### Modo Full
 
-Los 38 análisis completos. ~60-90 segundos.
+Los 39 análisis completos. ~60-90 segundos.
 
 ```bash
 python3 scripts/bi_analysis.py --csv orders.csv --mode full --output out.json
@@ -244,7 +246,7 @@ ecommerce-bi/
 ├── scripts/
 │   └── bi_analysis.py                ← Motor (Python + pandas)
 ├── references/
-│   ├── analysis_catalog.md           ← Metodología detallada de los 38 análisis
+│   ├── analysis_catalog.md           ← Metodología detallada de los 39 análisis
 │   ├── csv_mapping.md                ← Mapeo de columnas por plataforma
 │   ├── html_template.md              ← Template HTML del informe
 │   └── required_columns.md           ← Qué columnas habilita cada análisis

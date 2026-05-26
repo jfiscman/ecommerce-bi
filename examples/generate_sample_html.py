@@ -293,6 +293,29 @@ def render_20_seasonality(d):
     <p class="insight">Programar campañas en valles y pauta agresiva en picos.</p>"""
 
 
+def render_39_retention_gateway(d):
+    baseline = d.get("global_repurchase_rate", 0)
+    rows = "".join(
+        f"<tr><td>{p['product_name']}</td><td>{num(p['first_purchase_customers'])}</td>"
+        f"<td>{num(p['repeaters'])}</td><td><b>{p['retention_rate']:.1f}%</b></td>"
+        f"<td>{p['lift_vs_baseline']:.2f}×</td></tr>"
+        for p in d.get("products", [])[:12]
+    )
+    top = d.get("top_product")
+    top_line = (
+        f"Mejor gateway: <b>{top['product_name']}</b> — "
+        f"{top['retention_rate']:.1f}% de retención vs {baseline:.1f}% global "
+        f"(lift {top['lift_vs_baseline']:.2f}×)."
+        if top else "Sin productos calificados."
+    )
+    return f"""<p class="kpi-row">Baseline global de recompra: <b>{baseline:.1f}%</b> · Muestra mínima por producto: {d.get('min_sample_size', 0)} clientes · Productos calificados: {d.get('qualified_products', 0)}</p>
+    <table>
+      <thead><tr><th>Producto</th><th>Clientes 1ra compra</th><th>Volvieron</th><th>Tasa retención</th><th>Lift vs baseline</th></tr></thead>
+      <tbody>{rows or '<tr><td colspan="5">Sin productos con muestra suficiente</td></tr>'}</tbody>
+    </table>
+    <p class="insight">{top_line} Empujar los productos con lift &gt; 1.3 en pauta de adquisición rinde más que el best-seller absoluto: capturan clientes que vuelven, no solo ventas one-shot.</p>"""
+
+
 RENDERERS = {
     1: render_1_market_basket,
     2: render_2_category_affinity,
@@ -314,6 +337,7 @@ RENDERERS = {
     18: render_18_payment,
     19: render_19_bundling,
     20: render_20_seasonality,
+    39: render_39_retention_gateway,
 }
 
 

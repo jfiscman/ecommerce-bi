@@ -1,5 +1,6 @@
 {
   "mode": "lite",
+  "analysis_ids": null,
   "platform": "tiendanube",
   "summary": {
     "total_revenue": 2646813.15,
@@ -867,11 +868,11 @@
                 "count": 2
               },
               {
-                "product": "Remera Básica Blanca - L",
+                "product": "Remera Básica Blanca - M",
                 "count": 1
               },
               {
-                "product": "Remera Básica Blanca - M",
+                "product": "Remera Básica Blanca - L",
                 "count": 1
               },
               {
@@ -901,11 +902,11 @@
                 "count": 1
               },
               {
-                "product": "Pantalón Jogger Gris - M",
+                "product": "Remera Básica Negra - L",
                 "count": 1
               },
               {
-                "product": "Remera Básica Negra - L",
+                "product": "Pantalón Jogger Gris - M",
                 "count": 1
               }
             ]
@@ -945,11 +946,11 @@
                 "count": 2
               },
               {
-                "product": "Buzo Oversize Gris - M",
+                "product": "Pantalón Jogger Negro - L",
                 "count": 1
               },
               {
-                "product": "Pantalón Jogger Negro - L",
+                "product": "Buzo Oversize Gris - M",
                 "count": 1
               },
               {
@@ -957,7 +958,7 @@
                 "count": 1
               },
               {
-                "product": "Buzo Oversize Gris - L",
+                "product": "Camisa Lino Blanca - M",
                 "count": 1
               }
             ]
@@ -1009,7 +1010,7 @@
                 "count": 1
               },
               {
-                "product": "Pantalón Jogger Gris - M",
+                "product": "Medias Logo - Pack 3",
                 "count": 1
               }
             ]
@@ -1053,15 +1054,41 @@
                 "count": 1
               },
               {
-                "product": "Buzo Oversize Gris - M",
-                "count": 1
-              },
-              {
                 "product": "Camisa Lino Blanca - L",
                 "count": 1
               },
               {
+                "product": "Buzo Oversize Gris - M",
+                "count": 1
+              },
+              {
                 "product": "Camisa Lino Blanca - M",
+                "count": 1
+              }
+            ]
+          },
+          {
+            "product": "Remera Básica Blanca - M",
+            "multi_order_count": 4,
+            "top_companions": [
+              {
+                "product": "Gorra Trucker Negra",
+                "count": 2
+              },
+              {
+                "product": "Medias Logo - Pack 3",
+                "count": 1
+              },
+              {
+                "product": "Campera Puffer Negra - M",
+                "count": 1
+              },
+              {
+                "product": "Riñonera Crossbody Negra",
+                "count": 1
+              },
+              {
+                "product": "Remera Básica Blanca - L",
                 "count": 1
               }
             ]
@@ -1088,32 +1115,6 @@
               },
               {
                 "product": "Camisa Lino Blanca - L",
-                "count": 1
-              }
-            ]
-          },
-          {
-            "product": "Remera Básica Blanca - M",
-            "multi_order_count": 4,
-            "top_companions": [
-              {
-                "product": "Gorra Trucker Negra",
-                "count": 2
-              },
-              {
-                "product": "Medias Logo - Pack 3",
-                "count": 1
-              },
-              {
-                "product": "Campera Puffer Negra - M",
-                "count": 1
-              },
-              {
-                "product": "Remera Básica Blanca - L",
-                "count": 1
-              },
-              {
-                "product": "Riñonera Crossbody Negra",
                 "count": 1
               }
             ]
@@ -1183,11 +1184,11 @@
                 "count": 1
               },
               {
-                "product": "Pantalón Jogger Negro - M",
+                "product": "Camisa Lino Blanca - L",
                 "count": 1
               },
               {
-                "product": "Camisa Lino Blanca - L",
+                "product": "Pantalón Jogger Negro - M",
                 "count": 1
               }
             ]
@@ -1197,11 +1198,11 @@
             "multi_order_count": 3,
             "top_companions": [
               {
-                "product": "Riñonera Crossbody Negra",
+                "product": "Remera Básica Blanca - M",
                 "count": 2
               },
               {
-                "product": "Remera Básica Blanca - M",
+                "product": "Riñonera Crossbody Negra",
                 "count": 2
               },
               {
@@ -1293,11 +1294,11 @@
                 "count": 1
               },
               {
-                "product": "Pantalón Jogger Negro - M",
+                "product": "Buzo Oversize Negro - M",
                 "count": 1
               },
               {
-                "product": "Buzo Oversize Negro - M",
+                "product": "Pantalón Jogger Negro - M",
                 "count": 1
               }
             ]
@@ -1307,15 +1308,15 @@
             "multi_order_count": 2,
             "top_companions": [
               {
-                "product": "Riñonera Crossbody Negra",
-                "count": 1
-              },
-              {
                 "product": "Gorra Trucker Negra",
                 "count": 1
               },
               {
                 "product": "Remera Básica Blanca - M",
+                "count": 1
+              },
+              {
+                "product": "Riñonera Crossbody Negra",
                 "count": 1
               },
               {
@@ -1877,6 +1878,83 @@
             "customers": 1
           }
         ],
+        "status": "ok"
+      }
+    },
+    "39": {
+      "number": 39,
+      "name": "Producto gateway de retención",
+      "category": "Cliente",
+      "data": {
+        "global_repurchase_rate": 81.8,
+        "total_customers": 22,
+        "min_sample_size": 3,
+        "qualified_products": 7,
+        "products": [
+          {
+            "product_name": "Buzo Oversize Gris - L",
+            "first_purchase_customers": 4,
+            "repeaters": 4,
+            "retention_rate": 100.0,
+            "lift_vs_baseline": 1.22
+          },
+          {
+            "product_name": "Buzo Oversize Gris - M",
+            "first_purchase_customers": 3,
+            "repeaters": 3,
+            "retention_rate": 100.0,
+            "lift_vs_baseline": 1.22
+          },
+          {
+            "product_name": "Campera Puffer Negra - M",
+            "first_purchase_customers": 3,
+            "repeaters": 3,
+            "retention_rate": 100.0,
+            "lift_vs_baseline": 1.22
+          },
+          {
+            "product_name": "Pantalón Jogger Gris - M",
+            "first_purchase_customers": 3,
+            "repeaters": 3,
+            "retention_rate": 100.0,
+            "lift_vs_baseline": 1.22
+          },
+          {
+            "product_name": "Pantalón Jogger Negro - L",
+            "first_purchase_customers": 3,
+            "repeaters": 3,
+            "retention_rate": 100.0,
+            "lift_vs_baseline": 1.22
+          },
+          {
+            "product_name": "Short Surf Negro - M",
+            "first_purchase_customers": 3,
+            "repeaters": 3,
+            "retention_rate": 100.0,
+            "lift_vs_baseline": 1.22
+          },
+          {
+            "product_name": "Remera Básica Blanca - L",
+            "first_purchase_customers": 3,
+            "repeaters": 2,
+            "retention_rate": 66.7,
+            "lift_vs_baseline": 0.82
+          }
+        ],
+        "top_product": {
+          "product_name": "Buzo Oversize Gris - L",
+          "first_purchase_customers": 4,
+          "repeaters": 4,
+          "retention_rate": 100.0,
+          "lift_vs_baseline": 1.22
+        },
+        "bottom_product": {
+          "product_name": "Remera Básica Blanca - L",
+          "first_purchase_customers": 3,
+          "repeaters": 2,
+          "retention_rate": 66.7,
+          "lift_vs_baseline": 0.82
+        },
         "status": "ok"
       }
     },

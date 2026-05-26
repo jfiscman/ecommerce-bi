@@ -2153,6 +2153,95 @@ def analysis_38_niche_clusters(df, **kwargs):
     return {'clusters': clusters, 'total_customers': len(customer)}
 
 
+@safe_analysis
+def analysis_39_retention_gateway(df, **kwargs):
+    """
+    Producto gateway de retención.
+
+    Para cada producto, calcula qué porcentaje de los clientes que lo tuvieron
+    como PRIMERA compra volvieron a comprar al menos una vez más.
+
+    Output: ranking de productos por tasa de retención post-primera-compra,
+    comparado contra el baseline global.
+    """
+    if not has_columns(df, ['email', 'date', 'product_name']):
+        return None
+
+    # Filtrar a líneas con cliente identificado, fecha y producto
+    work = df[df['email'].notna() & df['date'].notna() & df['product_name'].notna()].copy()
+    if len(work) == 0:
+        return None
+
+    # Para cada cliente: total de órdenes únicas
+    if 'order_id' in work.columns:
+        customer_orders = work.groupby('email')['order_id'].nunique().reset_index()
+        customer_orders.columns = ['email', 'order_count']
+    else:
+        customer_orders = work.groupby('email')['date'].nunique().reset_index()
+        customer_orders.columns = ['email', 'order_count']
+
+    total_customers = len(customer_orders)
+    if total_customers < 5:
+        return None  # Sample demasiado chico para conclusiones
+
+    repeaters_global = (customer_orders['order_count'] >= 2).sum()
+    global_repurchase_rate = round(repeaters_global / total_customers * 100, 1)
+
+    # Identificar primera fecha de orden por cliente
+    first_dates = work.groupby('email')['date'].min().reset_index()
+    first_dates.columns = ['email', 'first_date']
+
+    # Tomar las líneas de la primera orden (por email + primer date)
+    first_lines = work.merge(first_dates, on='email')
+    first_lines = first_lines[first_lines['date'] == first_lines['first_date']]
+
+    # Para cada (email, product), marcamos que ese cliente lo tuvo en su 1ra compra
+    first_purchases = first_lines[['email', 'product_name']].drop_duplicates()
+
+    # Cruzamos con repeat status
+    repeat_status = customer_orders[['email', 'order_count']]
+    first_purchases = first_purchases.merge(repeat_status, on='email')
+    first_purchases['is_repeater'] = first_purchases['order_count'] >= 2
+
+    # Threshold dinámico de tamaño muestra: max(3, 5% del total de clientes)
+    min_sample = max(3, int(total_customers * 0.05))
+
+    by_product = first_purchases.groupby('product_name').agg(
+        first_purchase_customers=('email', 'nunique'),
+        repeaters=('is_repeater', 'sum'),
+    ).reset_index()
+
+    # Filtrar por muestra mínima
+    qualified = by_product[by_product['first_purchase_customers'] >= min_sample].copy()
+    if len(qualified) == 0:
+        return None
+
+    qualified['retention_rate'] = (qualified['repeaters'] / qualified['first_purchase_customers'] * 100).round(1)
+    qualified['lift_vs_baseline'] = (qualified['retention_rate'] / global_repurchase_rate).round(2) if global_repurchase_rate > 0 else 0
+
+    qualified = qualified.sort_values('retention_rate', ascending=False)
+
+    products = []
+    for _, row in qualified.iterrows():
+        products.append({
+            'product_name': row['product_name'],
+            'first_purchase_customers': int(row['first_purchase_customers']),
+            'repeaters': int(row['repeaters']),
+            'retention_rate': float(row['retention_rate']),
+            'lift_vs_baseline': float(row['lift_vs_baseline']),
+        })
+
+    return {
+        'global_repurchase_rate': global_repurchase_rate,
+        'total_customers': total_customers,
+        'min_sample_size': min_sample,
+        'qualified_products': len(products),
+        'products': products,
+        'top_product': products[0] if products else None,
+        'bottom_product': products[-1] if products else None,
+    }
+
+
 # ═══════════════════════════════════════════════════════════════
 # MAIN EXECUTION
 # ═══════════════════════════════════════════════════════════════
@@ -2168,6 +2257,7 @@ LITE_ANALYSES = [
     (8, 'Customer Lifetime Value', 'Cliente', analysis_08_clv),
     (9, 'Análisis de cohortes', 'Cliente', analysis_09_cohorts),
     (10, 'Tasa de recompra', 'Cliente', analysis_10_repurchase_rate),
+    (39, 'Producto gateway de retención', 'Cliente', analysis_39_retention_gateway),
     (11, 'Evolución revenue mensual', 'Revenue', analysis_11_revenue_evolution),
     (12, 'Ticket promedio', 'Revenue', analysis_12_avg_ticket),
     (13, 'Revenue por categoría', 'Revenue', analysis_13_revenue_by_category),
@@ -2259,15 +2349,16 @@ def run_analyses(df, mode='lite', ids=None):
 
 def list_analyses():
     """Print all available analyses and exit."""
+    lite_ids = {a[0] for a in LITE_ANALYSES}
     print("Available analyses (use --analysis N or --analysis N,M,...):\n", file=sys.stderr)
     current_cat = None
     for num, name, category, _ in FULL_ANALYSES:
         if category != current_cat:
             print(f"\n  [{category}]", file=sys.stderr)
             current_cat = category
-        modes = "Lite + Full" if num <= 20 else "Full only"
+        modes = "Lite + Full" if num in lite_ids else "Full only"
         print(f"    #{num:>2}  {name:<45}  ({modes})", file=sys.stderr)
-    print("\nModes: --mode lite (1-20) | --mode full (1-38)", file=sys.stderr)
+    print(f"\nModes: --mode lite ({len(LITE_ANALYSES)} analyses) | --mode full ({len(FULL_ANALYSES)} analyses)", file=sys.stderr)
 
 
 def parse_analysis_ids(value):

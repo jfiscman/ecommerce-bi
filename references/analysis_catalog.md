@@ -1,6 +1,6 @@
 # eCommerce BI — Catálogo de Análisis
 
-Metodología de referencia para los 38 análisis implementados en `bi_analysis.py`.
+Metodología de referencia para los 39 análisis implementados en `bi_analysis.py`.
 
 ---
 
@@ -1059,9 +1059,53 @@ def extract_category(product_name):
 - #36 (Cross-sell) depende de #1 (MBA) y #3 (Ranking) → ejecutar ambos primero
 - En modo Full, ejecutar todos los análisis base antes de los dependientes
 
+---
+
+### #39 — Producto gateway de retención
+**Category:** Cliente
+**Mode:** Lite + Full
+**Required columns:** `email`, `date`, `product_name`
+
+**Method:**
+1. Filtrar líneas con `email`, `date` y `product_name` presentes.
+2. Por cliente (`email`), contar órdenes únicas (basadas en `order_id` si está disponible, si no en fechas distintas). Calcular `repeaters_global` (clientes con ≥2 órdenes) y `global_repurchase_rate`.
+3. Identificar la fecha más temprana de orden por cliente y filtrar las líneas que pertenecen a esa primera orden.
+4. Para cada par `(email, product_name)` único en la primera orden, asociar el `is_repeater` (booleano) del cliente.
+5. Agrupar por `product_name`: contar clientes únicos que lo tuvieron como primera compra (`first_purchase_customers`) y cuántos de ellos son repeaters.
+6. Definir `min_sample = max(3, int(total_customers * 0.05))`. Filtrar productos por debajo del umbral para evitar tasas con n insuficiente.
+7. Calcular `retention_rate = repeaters / first_purchase_customers * 100` y `lift_vs_baseline = retention_rate / global_repurchase_rate` para cada producto.
+8. Ordenar por `retention_rate` descendente.
+
+**Output:**
+```json
+{
+  "global_repurchase_rate": 35.0,
+  "total_customers": 1240,
+  "min_sample_size": 62,
+  "qualified_products": 18,
+  "products": [
+    {
+      "product_name": "Buzo Oversize Gris",
+      "first_purchase_customers": 87,
+      "repeaters": 54,
+      "retention_rate": 62.1,
+      "lift_vs_baseline": 1.77
+    }
+  ],
+  "top_product": {"...": "..."},
+  "bottom_product": {"...": "..."}
+}
+```
+
+**Insight template:**
+"Tu mejor producto gateway de retención es X: el N% de los clientes que lo compraron primero volvió a comprar, vs el M% global (lift Lx). Empujar X en pauta de adquisición vale más que el best-seller absoluto. Tu peor gateway es Y: si el M% de los clientes que arrancan con Y nunca vuelven, sumarle bundling o complementarlo con un producto puente."
+
+---
+
 ### Mínimos de datos para activar un análisis
 - Mínimo 50 órdenes para análisis de producto
 - Mínimo 100 clientes para análisis de cliente
 - Mínimo 6 meses para análisis de tendencias y forecast
 - Mínimo 2 órdenes por cliente para análisis de cohortes e intervalos
+- Mínimo 5 clientes totales para #39 (gateway de retención)
 - Si no se cumplen: incluir en output `"skipped": true, "reason": "insufficient_data"`

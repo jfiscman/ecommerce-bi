@@ -59,6 +59,7 @@ Los nombres son los **canónicos internos** del script. El mapeo desde cada plat
 | 36 | Cross-sell | `order_id`, `product_name` | Skip |
 | 37 | Pricing | `product_name`, `product_price` | Skip |
 | 38 | Nichos | `order_id`, `product_name` | Skip |
+| 39 | Producto gateway de retención | `email`, `date`, `product_name` | Skip si falta cualquiera o si hay &lt;5 clientes únicos |
 
 ---
 
