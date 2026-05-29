@@ -1,6 +1,44 @@
 ---
 name: ecommerce-bi
-description: "Genera informes de Business Intelligence para eCommerce a partir de un CSV de ventas. Auto-detecta plataforma (Tiendanube, Shopify, WooCommerce) y produce 21 (Lite), 39 (Full) o análisis individuales: Market Basket, RFM, cohortes, CLV, cross-sell, churn, producto gateway de retención, estacionalidad, forecast y más. Output: JSON estructurado + informe HTML branded. Usar cuando el usuario mencione 'business intelligence', 'BI', 'análisis de ventas', 'market basket', 'RFM', 'cohortes', 'CLV', 'lifetime value', 'cross-sell', 'basket analysis', 'afinidad de productos', 'análisis ecommerce', 'informe de ventas', 'análisis de clientes', 'qué producto retiene mejor'."
+description: "Genera informes de Business Intelligence para eCommerce a partir de un CSV de ventas. Auto-detecta plataforma (Tiendanube, Shopify, WooCommerce) y produce 21 (Lite), 39 (Full) o análisis individuales: Market Basket, RFM, cohortes, CLV, cross-sell, churn, producto gateway de retención, estacionalidad, forecast y más. Output: JSON estructurado + informe HTML branded."
+version: 2.0.0
+author: Mathias Chu
+license: MIT
+platforms:
+  - hermes
+  - claude-code
+  - cursor
+  - copilot
+  - opencode
+  - windsurf
+  - aider
+tags:
+  - ecommerce
+  - business-intelligence
+  - bi
+  - rfm
+  - market-basket
+  - cohortes
+  - clv
+  - cross-sell
+  - churn
+  - tiendanube
+  - shopify
+  - woocommerce
+  - analytics
+  - csv
+  - pandas
+prerequisites:
+  commands:
+    - python (3.9+)
+  packages:
+    - pandas
+    - numpy
+metadata:
+  hermes:
+    skill_type: analysis
+    mcp_required: false
+    local_tool: true
 ---
 
 # eCommerce Business Intelligence Skill

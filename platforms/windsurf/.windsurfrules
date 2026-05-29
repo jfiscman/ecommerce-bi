@@ -1,0 +1,24 @@
+# eCommerce BI — Windsurf Rules
+
+<!--
+  WINDSURF INTEGRATION
+  Copy to: .windsurfrules
+-->
+
+## eCommerce Business Intelligence
+
+Generate BI reports from eCommerce order CSVs (Tiendanube, Shopify, WooCommerce).
+
+### Execution Modes
+- **Lite**: `python3 scripts/bi_analysis.py --csv "file.csv" --mode lite --output out.json` (21 analyses, ~30s)
+- **Full**: `python3 scripts/bi_analysis.py --csv "file.csv" --mode full --output out.json` (39 analyses, ~90s)
+- **Individual**: `python3 scripts/bi_analysis.py --csv "file.csv" --analysis 7 --output out.json`
+- **List**: `python3 scripts/bi_analysis.py --list`
+
+### Key Analyses: #7 RFM, #1 Market Basket, #9 Cohorts, #8 CLV, #3 Product Ranking, #39 Retention Gateway
+
+### Workflow: Detect platform → Ask mode → Run script → Generate HTML
+
+### Rules: Always run script, Market Basket lift>1.0 only, RFM 11 labels, cohorts 12×12, all local
+
+### Requirements: Python 3.9+, pandas, numpy

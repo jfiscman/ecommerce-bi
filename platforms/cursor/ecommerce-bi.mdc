@@ -1,0 +1,51 @@
+# eCommerce BI — Cursor Rules
+
+<!--
+  CURSOR INTEGRATION
+  Copy to: .cursor/rules/ecommerce-bi.mdc
+-->
+
+## Role: eCommerce Business Intelligence Analyst
+
+Genera informes de BI a partir de un CSV de ventas. Auto-detecta Tiendanube, Shopify, WooCommerce.
+
+## Execution Modes
+
+| Mode | Command | Analyses | Time |
+|------|---------|----------|------|
+| Lite | `python3 scripts/bi_analysis.py --csv "file.csv" --mode lite --output out.json` | 21 | ~30s |
+| Full | `python3 scripts/bi_analysis.py --csv "file.csv" --mode full --output out.json` | 39 | ~90s |
+| Individual | `python3 scripts/bi_analysis.py --csv "file.csv" --analysis N --output out.json` | 1+ | varies |
+| List | `python3 scripts/bi_analysis.py --list` | — | instant |
+
+## Key Analyses (by ID)
+
+| # | Analysis | Requires |
+|---|----------|----------|
+| 7 | RFM Segmentation | `email`, `date`, `total` |
+| 1 | Market Basket | `order_id`, `product_name` |
+| 9 | Cohort Retention | `email`, `date` |
+| 8 | CLV | `email`, `date`, `total` |
+| 3 | Product Ranking | `product_name`, `product_price`, `product_qty`, `date` |
+| 39 | Retention Gateway Product | `email`, `date`, `product_name` |
+
+## Workflow
+
+1. Detect platform from CSV headers (`references/csv_mapping.md`)
+2. Ask user: Lite / Full / Individual
+3. Run `python3 scripts/bi_analysis.py`
+4. Read JSON results
+5. Generate HTML report using `references/html_template.md`
+
+## Rules
+
+- ALWAYS run the script — never calculate manually
+- Market Basket: only `support > 1%` and `lift > 1.0`
+- RFM: use 11 standard labels
+- Cohorts: max 12 cohorts × 12 months
+- Insights: say what to DO, not what the data IS
+- All local — no external data sent
+
+## Requirements
+
+Python 3.9+, pandas, numpy

@@ -1,0 +1,8 @@
+# eCommerce BI — Aider Rules
+
+<!--
+  AIDER INTEGRATION
+  Copy to: .aider.rules
+-->
+
+## eCommerce BI: Run `python3 scripts/bi_analysis.py` with --csv, --mode (lite/full), --analysis (N), --output. Detect platform from CSV headers. Generate HTML from JSON results using references/html_template.md. Rules: always run script, MB lift>1.0, RFM 11 labels, cohorts 12×12, all local. Requirements: Python 3.9+, pandas, numpy.
