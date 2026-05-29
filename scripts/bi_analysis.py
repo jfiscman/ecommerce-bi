@@ -12,6 +12,7 @@ import sys
 import os
 from collections import Counter, defaultdict
 from datetime import datetime, timedelta
+from functools import wraps
 from itertools import combinations
 import math
 
@@ -276,6 +277,7 @@ def parse_dates(df, platform):
 
 def safe_analysis(func):
     """Decorator to catch errors and return skipped status."""
+    @wraps(func)
     def wrapper(df, **kwargs):
         try:
             result = func(df, **kwargs)
@@ -285,7 +287,6 @@ def safe_analysis(func):
             return result
         except Exception as e:
             return {'status': 'skipped', 'reason': str(e)}
-    wrapper.__name__ = func.__name__
     return wrapper
 
 
@@ -315,15 +316,39 @@ def get_orders(df):
     return orders
 
 
-def fmt_currency(val, currency='ARS'):
-    """Format number as currency string."""
-    if pd.isna(val):
-        return '$0'
-    if abs(val) >= 1_000_000:
-        return f'${val/1_000_000:,.1f}M'
-    if abs(val) >= 1_000:
-        return f'${val:,.0f}'
-    return f'${val:,.2f}'
+# ═══════════════════════════════════════════════════════════════
+# SHARED HELPERS — used by multiple analyses
+# ═══════════════════════════════════════════════════════════════
+
+def _extract_category(name):
+    """Extract the category prefix from a product name.
+
+    Returns the part before the first ' - ', ' | ', or ' / ' separator;
+    falls back to the first word. Returns 'Sin categoría' for null values.
+    """
+    if pd.isna(name):
+        return 'Sin categoría'
+    name = str(name).strip()
+    for sep in [' - ', ' | ', ' / ']:
+        if sep in name:
+            return name.split(sep)[0].strip()
+    return name.split()[0] if name.split() else 'Sin categoría'
+
+
+def _extract_base_name(name):
+    """Return the base product name without variant suffixes.
+
+    Strips trailing parenthetical variants like '(S, Negro)' and
+    anything after a ' - ' separator, matching normalize_product_name
+    but usable on plain strings (not just product variants).
+    """
+    if pd.isna(name):
+        return str(name)
+    name = str(name).strip()
+    for sep in [' - ', ' | ', ' / ']:
+        if sep in name:
+            return name.split(sep)[0].strip()
+    return name
 
 
 # ═══════════════════════════════════════════════════════════════
@@ -448,18 +473,8 @@ def analysis_02_category_affinity(df, **kwargs):
     if not has_columns(df, ['order_id', 'product_name']):
         return None
 
-    def extract_category(name):
-        if pd.isna(name):
-            return 'Sin categoría'
-        name = str(name).strip()
-        for sep in [' - ', ' | ', ' / ']:
-            if sep in name:
-                return name.split(sep)[0].strip()
-        words = name.split()
-        return words[0] if words else 'Sin categoría'
-
     df_cat = df.copy()
-    df_cat['category'] = df_cat['product_name'].apply(extract_category)
+    df_cat['category'] = df_cat['product_name'].apply(_extract_category)
 
     orders_cats = df_cat.groupby('order_id')['category'].apply(lambda x: list(set(x))).reset_index()
     multi = orders_cats[orders_cats['category'].apply(len) >= 2]
@@ -490,10 +505,10 @@ def analysis_02_category_affinity(df, **kwargs):
         })
     pairs.sort(key=lambda x: x['lift'], reverse=True)
 
-    # Category distribution
-    cat_revenue = df_cat.groupby('category').apply(
-        lambda x: (x['product_price'].fillna(0) * x['product_qty'].fillna(1)).sum()
-    ).sort_values(ascending=False)
+    # Category distribution — include_groups=False avoids a FutureWarning in pandas 2.x
+    # where the grouping column itself was included in the apply context.
+    df_cat['line_revenue'] = df_cat['product_price'].fillna(0) * df_cat['product_qty'].fillna(1)
+    cat_revenue = df_cat.groupby('category')['line_revenue'].sum().sort_values(ascending=False)
 
     distribution = [{'category': cat, 'revenue': round(rev, 2)} for cat, rev in cat_revenue.head(15).items()]
 
@@ -809,7 +824,10 @@ def analysis_09_cohorts(df, **kwargs):
     first_purchase.columns = ['email', 'cohort']
 
     orders = orders.merge(first_purchase, on='email')
-    orders['months_since'] = (orders['order_month'] - orders['cohort']).apply(lambda x: x.n if hasattr(x, 'n') else 0)
+    # pandas < 2.0 returns a DateOffset with .n; pandas >= 2.0 returns an int directly.
+    orders['months_since'] = (orders['order_month'] - orders['cohort']).apply(
+        lambda x: x.n if hasattr(x, 'n') else int(x)
+    )
 
     # Build cohort matrix
     cohort_data = orders.groupby(['cohort', 'months_since'])['email'].nunique().reset_index()
@@ -1007,17 +1025,8 @@ def analysis_13_revenue_by_category(df, **kwargs):
     if not has_columns(df, ['product_name', 'product_price', 'product_qty']):
         return None
 
-    def extract_category(name):
-        if pd.isna(name):
-            return 'Sin categoría'
-        name = str(name).strip()
-        for sep in [' - ', ' | ', ' / ']:
-            if sep in name:
-                return name.split(sep)[0].strip()
-        return name.split()[0] if name.split() else 'Sin categoría'
-
     df_valid = df[df['product_name'].notna()].copy()
-    df_valid['category'] = df_valid['product_name'].apply(extract_category)
+    df_valid['category'] = df_valid['product_name'].apply(_extract_category)
     df_valid['line_revenue'] = df_valid['product_price'].fillna(0) * df_valid['product_qty'].fillna(1)
 
     cat_stats = df_valid.groupby('category').agg(
@@ -1346,7 +1355,7 @@ def analysis_20_seasonality(df, **kwargs):
 
 
 # ═══════════════════════════════════════════════════════════════
-# ANALYSIS FUNCTIONS — FULL ONLY (21-38)
+# ANALYSIS FUNCTIONS — FULL ONLY (21-38) + LITE #39
 # ═══════════════════════════════════════════════════════════════
 
 COLORS_ES = ['negro', 'blanco', 'rojo', 'azul', 'verde', 'rosa', 'gris', 'beige',
@@ -1424,7 +1433,6 @@ def analysis_22_size_affinity(df, **kwargs):
         return None
 
     df_size = df[df['product_name'].notna()].copy()
-    sku_col = 'sku' if 'sku' in df_size.columns else ''
     df_size['size'] = df_size.apply(
         lambda r: extract_size(r['product_name'], r.get('sku', '')), axis=1
     )
@@ -1462,14 +1470,7 @@ def analysis_23_sku_variants(df, **kwargs):
 
     df_valid['line_revenue'] = df_valid['product_price'].fillna(0) * df_valid['product_qty'].fillna(1)
 
-    # Extract base product (product_name without variant info)
-    def base_product(name):
-        for sep in [' - ', ' | ', ' / ']:
-            if sep in str(name):
-                return str(name).split(sep)[0].strip()
-        return str(name).strip()
-
-    df_valid['base'] = df_valid['product_name'].apply(base_product)
+    df_valid['base'] = df_valid['product_name'].apply(_extract_base_name)
 
     variant_stats = df_valid.groupby(['base', 'sku']).agg(
         revenue=('line_revenue', 'sum'),
@@ -1939,15 +1940,7 @@ def analysis_35_forecast(df, **kwargs):
     x = np.arange(len(monthly))
     y = monthly.values.astype(float)
 
-    # y = mx + b
-    n = len(x)
-    sum_x = x.sum()
-    sum_y = y.sum()
-    sum_xy = (x * y).sum()
-    sum_x2 = (x * x).sum()
-
-    m = (n * sum_xy - sum_x * sum_y) / (n * sum_x2 - sum_x ** 2)
-    b = (sum_y - m * sum_x) / n
+    m, b = np.polyfit(x, y, 1)
 
     # Residual std for confidence band
     y_pred = m * x + b
@@ -2027,16 +2020,8 @@ def analysis_37_pricing_analysis(df, **kwargs):
     if not has_columns(df, ['product_name', 'product_price', 'product_qty']):
         return None
 
-    def extract_category(name):
-        if pd.isna(name):
-            return 'Sin categoría'
-        for sep in [' - ', ' | ', ' / ']:
-            if sep in str(name):
-                return str(name).split(sep)[0].strip()
-        return str(name).split()[0]
-
     df_valid = df[df['product_name'].notna() & (df['product_price'] > 0)].copy()
-    df_valid['category'] = df_valid['product_name'].apply(extract_category)
+    df_valid['category'] = df_valid['product_name'].apply(_extract_category)
     df_valid['line_revenue'] = df_valid['product_price'] * df_valid['product_qty'].fillna(1)
 
     categories = []
@@ -2112,9 +2097,11 @@ def analysis_38_niche_clusters(df, **kwargs):
     if k < 2:
         k = 2
 
-    # Simple k-means
-    np.random.seed(42)
-    centroids = X_norm[np.random.choice(len(X_norm), k, replace=False)]
+    # Use a local Generator instead of np.random.seed() to avoid mutating
+    # the global numpy RNG state (which would affect reproducibility of any
+    # analysis that runs after this one in the same process).
+    rng = np.random.default_rng(42)
+    centroids = X_norm[rng.choice(len(X_norm), k, replace=False)]
 
     for _ in range(50):
         # Assign clusters
@@ -2303,7 +2290,7 @@ def run_analyses(df, mode='lite', ids=None):
             if n in ALL_ANALYSES_INDEX:
                 analyses.append(ALL_ANALYSES_INDEX[n])
             else:
-                print(f"  WARNING: analysis #{n} does not exist (valid range: 1-38). Skipping.", file=sys.stderr)
+                print(f"  WARNING: analysis #{n} does not exist (valid range: 1-39). Skipping.", file=sys.stderr)
     else:
         analyses = LITE_ANALYSES if mode == 'lite' else FULL_ANALYSES
 
@@ -2358,7 +2345,7 @@ def list_analyses():
             current_cat = category
         modes = "Lite + Full" if num in lite_ids else "Full only"
         print(f"    #{num:>2}  {name:<45}  ({modes})", file=sys.stderr)
-    print(f"\nModes: --mode lite ({len(LITE_ANALYSES)} analyses) | --mode full ({len(FULL_ANALYSES)} analyses)", file=sys.stderr)
+    print(f"\nModes: --mode lite ({len(LITE_ANALYSES)} analyses) | --mode full ({len(FULL_ANALYSES)} analyses) | --analysis N (valid range: 1-39)", file=sys.stderr)
 
 
 def parse_analysis_ids(value):
@@ -2423,6 +2410,25 @@ def compute_summary(df):
     }
 
 
+class _BiEncoder(json.JSONEncoder):
+    """JSON encoder that handles pandas/numpy types that the default encoder can't."""
+    def default(self, obj):
+        if isinstance(obj, np.integer):
+            return int(obj)
+        if isinstance(obj, np.floating):
+            return float(obj)
+        if isinstance(obj, np.ndarray):
+            return obj.tolist()
+        if isinstance(obj, (pd.Timestamp, pd.Period)):
+            return str(obj)
+        try:
+            if pd.isna(obj):
+                return None
+        except (TypeError, ValueError):
+            pass
+        return super().default(obj)
+
+
 def main():
     parser = argparse.ArgumentParser(
         description='eCommerce BI Analysis — Lite (20), Full (38) or individual analyses.',
@@ -2477,6 +2483,7 @@ Examples:
     analyses = run_analyses(df, args.mode, ids=args.analysis)
 
     output = {
+        'generated_at': datetime.now().isoformat(timespec='seconds'),
         'mode': mode_for_output,
         'analysis_ids': args.analysis,
         'platform': platform,
@@ -2484,33 +2491,8 @@ Examples:
         'analyses': analyses,
     }
 
-    # Convert any remaining non-serializable types
-    def make_serializable(obj):
-        if isinstance(obj, (np.integer,)):
-            return int(obj)
-        if isinstance(obj, (np.floating,)):
-            return float(obj)
-        if isinstance(obj, (np.ndarray,)):
-            return obj.tolist()
-        if isinstance(obj, (pd.Timestamp,)):
-            return str(obj)
-        if isinstance(obj, (pd.Period,)):
-            return str(obj)
-        if pd.isna(obj):
-            return None
-        return obj
-
-    def clean_dict(d):
-        if isinstance(d, dict):
-            return {k: clean_dict(v) for k, v in d.items()}
-        if isinstance(d, list):
-            return [clean_dict(v) for v in d]
-        return make_serializable(d)
-
-    output = clean_dict(output)
-
     with open(args.output, 'w', encoding='utf-8') as f:
-        json.dump(output, f, ensure_ascii=False, indent=2, default=str)
+        json.dump(output, f, ensure_ascii=False, indent=2, cls=_BiEncoder)
 
     print(f"Results written to: {args.output}", file=sys.stderr)
     ok_count = sum(1 for a in analyses.values() if a['data'].get('status') == 'ok')
